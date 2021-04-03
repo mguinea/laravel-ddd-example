@@ -1,0 +1,65 @@
+version: '3'
+services:
+
+  # PHP Service
+  kanban-api-php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kanban-api-php
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: kanban-api-php
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./etc/infrastructure/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - default
+
+  # Nginx Service
+  kanban-api-webserver:
+    image: nginx:alpine
+    container_name: kanban-api-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8180:80"
+      - "4143:443"
+    volumes:
+      - ./:/var/www
+      - ./etc/infrastructure/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - default
+
+  # MySQL Service
+  kanban-db:
+    image: mysql:5.7.22
+    container_name: kanban-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "33106:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql/
+      - ./etc/infrastructure/mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - default
+
+# Docker Networks
+networks:
+  default:
+    name: laravel-ddd-example
+    driver: bridge
+
+# Volumes
+volumes:
+  dbdata:
+    driver: local
