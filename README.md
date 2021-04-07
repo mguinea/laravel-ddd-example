@@ -3,8 +3,10 @@
 </h1>
 
 <p align="center">
-    <a href="#"><img src="https://img.shields.io/badge/Laravel-8-orange.svg?style=flat-square&logo=laravel" alt="Laravel 8"/></a>
-    <a href="#"><img src="https://img.shields.io/badge/Vue-green.svg?style=flat-square&logo=vue.js" alt="Vue.js"/></a>
+    <a href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-8-orange.svg?style=flat-square&logo=laravel" alt="Laravel 8"/></a>
+    <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-2-green.svg?style=flat-square&logo=vue.js" alt="Vue.js"/></a>
+    <a href="https://nuxtjs.org/"><img src="https://img.shields.io/badge/Nuxt-2-green.svg?style=flat-square&logo=nuxt.js" alt="Nuxt.js"/></a>
+    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind-2-blue.svg?style=flat-square&logo=tailwind-css" alt="Tailwind CSS"/></a>
 </p>
 
 <p align="center">
