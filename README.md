@@ -12,6 +12,7 @@
     <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-3-2496ED.svg?style=flat-square&logo=docker" alt="Docker"/></a>
     <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/mysql-8-4479A1.svg?style=flat-square&logo=mysql" alt="MySql"/></a>
     <a href="https://www.sqlite.org/index.html"><img src="https://img.shields.io/badge/sqlite-3-003B57.svg?style=flat-square&logo=sqlite" alt="SQLite"/></a>
+    <a href="h#"><img src="https://img.shields.io/badge/github_actions-2088FF.svg?style=flat-square&logo=github-actions" alt="Github Actions"/></a>
 </p>
 
 <p align="center">
@@ -22,6 +23,10 @@
   <a href="https://github.com/mguinea/laravel-ddd-example/issues">Report a bug</a>
   ·
   <a href="https://github.com/mguinea/laravel-ddd-example/issues">Request a feature</a>
+</p>
+
+<p align="center">
+    <a href="https://github.com/mguinea/laravel-ddd-example/actions"><img src="https://github.com/mguinea/laravel-ddd-example/workflows/CI/badge.svg" alt="CI pipeline status" /></a>
 </p>
 
 ## Installation
