@@ -8,6 +8,7 @@
     <a href="https://nuxtjs.org/"><img src="https://img.shields.io/badge/Nuxt-2-00C58E.svg?style=flat-square&logo=nuxt.js" alt="Nuxt.js"/></a>
     <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind-2-38B2AC.svg?style=flat-square&logo=tailwind-css" alt="Tailwind CSS"/></a>
     <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-7-777BB4.svg?style=flat-square&logo=php" alt="PHP"/></a>
+    <a href="https://www.jetbrains.com/es-es/phpstorm/?ref=steemhunt"><img src="https://img.shields.io/badge/PhpStorm-2021-000000.svg?style=flat-square&logo=phpstorm" alt="PhpStorm"/></a>
 </p>
 
 <p align="center">
