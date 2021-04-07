@@ -6,34 +6,32 @@
     <a href="#"><img src="https://img.shields.io/badge/Laravel-8-orange.svg?style=flat-square&logo=laravel" alt="Laravel 8"/></a>
 </p>
 
+<p align="center">
+  This is a monorepo containing a <strong>PHP application using Domain-Driven Design (DDD) and Command Query Responsibility Segregation
+  (CQRS) principles</strong>. It also has a front in <strong>Vue.js and Nuxt.js</strong>.
+  <br />
+  <br />
+  <a href="https://github.com/mguinea/laravel-ddd-example/issues">Report a bug</a>
+  ·
+  <a href="https://github.com/mguinea/laravel-ddd-example/issues">Request a feature</a>
+</p>
 
+## Installation
 
+### Requirements
 
-AWS simulation in local using LocalStack https://www.youtube.com/watch?v=GBLPi-mno7M
-    pip install localstack
-    localstack start
-    pip install awscli
-        aws --endpoint-url=http://localhost:4576 sqs create queue --queue-name kanban-something
-AWS SQS (SNS?)
-AWS S3 (images)
-Docker
-Docker compose
-PHP >= 7.4
-Laravel 8
-Phpunit
-Nuxt
-Jest
-Tailwind
-Mock server in GO (Killgrave) to mock 
-github actions CI/CD pipeline
-Elastic / Kibana / Logstash
-Cloudwatch
+### Environment
 
-php -S localhost:8000 -t public
+### Execution
 
+### Tests
 
-https://www.digitalocean.com/community/tutorials/como-configurar-laravel-nginx-y-mysql-con-docker-compose-es
+## Project structure and explanation
 
-### Resources
+### Bounded contexts
 
-- https://madewithvuejs.com/draggable-kanban-board
+### Architecture
+
+#### Repositories
+
+#### CQRS
