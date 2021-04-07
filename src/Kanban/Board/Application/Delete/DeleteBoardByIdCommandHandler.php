@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Kanban\Board\Application\Create;
+namespace App\Kanban\Board\Application\Delete;
 
 use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Infrastructure\Persistence\Eloquent\BoardRepository;
 use App\Shared\Domain\Bus\Command\CommandHandler;
 
-final class DeleteBoardCommandHandler implements CommandHandler
+final class DeleteBoardByIdCommandHandler implements CommandHandler
 {
     private BoardRepository $repository;
 

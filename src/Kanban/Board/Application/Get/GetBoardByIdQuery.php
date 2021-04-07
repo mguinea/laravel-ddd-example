@@ -22,6 +22,6 @@ final class GetBoardByIdQuery implements Query
 
     public function queryName(): string
     {
-        return 'kanban.board.find_by_id';
+        return 'kanban.board.get_by_id';
     }
 }

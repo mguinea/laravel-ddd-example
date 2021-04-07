@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Kanban\Board\Application\Get;
 
 use App\Kanban\Board\Application\BoardResponse;
-use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Domain\BoardNotFound;
 use App\Kanban\Board\Domain\BoardRepository;
@@ -22,20 +21,13 @@ final class GetBoardByIdQueryHandler implements QueryHandler
 
     public function __invoke(GetBoardByIdQuery $query): BoardResponse
     {
-        $boardId = BoardId::fromValue($query->id());
-
-        $board = new Board(
-            $boardId,
-            'test'
-        );
+        $id = BoardId::fromValue($query->id());
+        $board = $this->repository->find($id);
 
         if (null === $board) {
             throw new BoardNotFound;
         }
 
-        return new BoardResponse(
-            $board->id()->value(),
-            $board->name()
-        );
+        return BoardResponse::fromBoard($board);
     }
 }

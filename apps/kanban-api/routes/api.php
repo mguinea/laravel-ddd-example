@@ -7,7 +7,7 @@ use Apps\KanbanApi\Http\Controllers\Board\SearchBoardsController;
 use Apps\KanbanApi\Http\Controllers\HealthCheck\HealthCheckController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['api', 'web'])->prefix('v1/kanban')->group(function() {
+Route::middleware(['api'])->prefix('v1/kanban')->group(function() {
     Route::get('health-check', HealthCheckController::class);
 
     Route::prefix('boards')->group(function() {

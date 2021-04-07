@@ -7,9 +7,9 @@ namespace App\Kanban\Board\Domain;
 final class Board
 {
     private BoardId $id;
-    private string $name;
+    private BoardName $name;
 
-    public function __construct(BoardId $id, string $name)
+    public function __construct(BoardId $id, BoardName $name)
     {
         $this->id = $id;
         $this->name = $name;
@@ -19,7 +19,7 @@ final class Board
     {
         return new self(
             BoardId::fromValue($id),
-            $name
+            BoardName::fromValue($name)
         );
     }
 
@@ -28,7 +28,7 @@ final class Board
         return $this->id;
     }
 
-    public function name(): string
+    public function name(): BoardName
     {
         return $this->name;
     }

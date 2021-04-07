@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Apps\KanbanApi\Http\Controllers\Board;
 
-use App\Kanban\Board\Application\Create\DeleteBoardByIdCommand;
-use App\Kanban\Board\Domain\BoardId;
+use App\Kanban\Board\Application\Delete\DeleteBoardByIdCommand;
 use App\Shared\Domain\Bus\Command\CommandBus;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -23,9 +22,7 @@ final class DeleteBoardController
     public function __invoke(Request $request, string $id): JsonResponse
     {
         $this->commandBus->dispatch(
-            new DeleteBoardByIdCommand(
-                $id
-            )
+            new DeleteBoardByIdCommand($id)
         );
 
         return new JsonResponse(

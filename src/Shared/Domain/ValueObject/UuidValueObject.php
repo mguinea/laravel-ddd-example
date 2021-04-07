@@ -8,7 +8,7 @@ use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 use Stringable;
 
-class Uuid implements Stringable
+class UuidValueObject implements Stringable
 {
     protected string $value;
 
@@ -33,7 +33,7 @@ class Uuid implements Stringable
         return $this->value;
     }
 
-    public function equals(Uuid $other): bool
+    public function equals(UuidValueObject $other): bool
     {
         return $this->value() === $other->value();
     }

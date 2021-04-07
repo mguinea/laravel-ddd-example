@@ -11,9 +11,6 @@
 |
 */
 
-use App\Kanban\Board\Infrastructure\Laravel\BoardServiceProvider;
-use App\Shared\Infrastructure\Laravel\SharedServiceProvider;
-
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
@@ -64,8 +61,9 @@ $app->useEnvironmentPath(dirname(__DIR__ . '/../../../../'));
 |
 */
 
-$app->register(SharedServiceProvider::class);
-$app->register(BoardServiceProvider::class);
+$app->register(\App\Shared\Infrastructure\Laravel\SharedServiceProvider::class);
+$app->register(\App\Kanban\Board\Infrastructure\Laravel\BoardServiceProvider::class);
+$app->register(\App\Kanban\Shared\Infrastructure\Laravel\SharedServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

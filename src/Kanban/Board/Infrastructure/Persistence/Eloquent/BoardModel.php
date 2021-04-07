@@ -11,10 +11,25 @@ final class BoardModel extends Model
 {
     use HasFactory;
 
-    protected $connection = 'mysql';
     protected $keyType = 'string';
     protected $primaryKey = 'id';
     protected $table = 'boards';
     public $incrementing = false;
     public $timestamps = false;
+
+    public function __construct(array $attributes = [])
+    {
+        if (app()->environment() === 'testing') {
+            $this->setConnection('sqlite');
+        } else {
+            $this->setConnection('mysql');
+        }
+
+        parent::__construct($attributes);
+    }
+
+    protected static function newFactory()
+    {
+        return BoardModelFactory::new();
+    }
 }

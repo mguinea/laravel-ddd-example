@@ -22,7 +22,7 @@ final class BoardResponse implements Response
     {
         return new self(
             $board->id()->value(),
-            $board->name()
+            $board->name()->value()
         );
     }
 

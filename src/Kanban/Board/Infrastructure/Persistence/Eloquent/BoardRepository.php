@@ -6,8 +6,11 @@ namespace App\Kanban\Board\Infrastructure\Persistence\Eloquent;
 
 use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\BoardId;
+use App\Kanban\Board\Domain\BoardNotFound;
 use App\Kanban\Board\Domain\BoardRepository as BoardRepositoryInterface;
 use App\Kanban\Board\Domain\Boards;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 final class BoardRepository implements BoardRepositoryInterface
 {
@@ -20,12 +23,18 @@ final class BoardRepository implements BoardRepositoryInterface
 
     public function delete(BoardId $id): void
     {
-        // TODO: Implement delete() method.
+        $board = $this->model->find($id->value());
+
+        if (null === $board) {
+            throw new BoardNotFound;
+        }
+
+        $board->delete();
     }
 
-    public function find($id): ?Board
+    public function find(BoardId $id): ?Board
     {
-        $eloquentBoard = $this->model->find($id);
+        $eloquentBoard = $this->model->find($id->value());
 
         if (null === $eloquentBoard) {
             return null;
@@ -44,16 +53,37 @@ final class BoardRepository implements BoardRepositoryInterface
 
     public function save(Board $board): void
     {
+        $boardModel = $this->toModel($board);
+
+        DB::beginTransaction();
+        try {
+            $boardModel->save();
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw new Exception('TODO eloquent exception');
+        }
     }
 
-    //public function search(Criteria $criteria): array
+    private function toModel(Board $board): BoardModel
+    {
+        $boardModel = new BoardModel;
+        $boardModel->id = $board->id()->value();
+        $boardModel->name = $board->name()->value();
+
+        return $boardModel;
+    }
+
     public function search(): Boards
     {
-        return new Boards(
-            [
-                new Board(BoardId::random(), 'board1'),
-                new Board(BoardId::random(), 'board2')
-            ]
-        );
+        $eloquentBoards = $this->model->all();
+
+        $boards = $eloquentBoards->map(
+            function (BoardModel $eloquentBoard) {
+                return $this->toDomain($eloquentBoard);
+            }
+        )->toArray();
+
+        return new Boards($boards);
     }
 }

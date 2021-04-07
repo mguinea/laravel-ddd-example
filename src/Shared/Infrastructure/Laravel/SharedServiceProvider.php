@@ -10,7 +10,7 @@ use App\Shared\Infrastructure\Bus\Laravel\CommandBus as LaravelCommandBus;
 use App\Shared\Infrastructure\Bus\Laravel\QueryBus as LaravelQueryBus;
 use Illuminate\Support\ServiceProvider;
 
-class SharedServiceProvider extends ServiceProvider
+final class SharedServiceProvider extends ServiceProvider
 {
     public function register()
     {
@@ -28,10 +28,5 @@ class SharedServiceProvider extends ServiceProvider
             QueryBus::class,
             LaravelQueryBus::class
         );
-    }
-
-    public function boot()
-    {
-
     }
 }

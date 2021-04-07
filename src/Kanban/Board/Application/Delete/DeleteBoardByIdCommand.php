@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Kanban\Board\Application\Create;
+namespace App\Kanban\Board\Application\Delete;
 
 use App\Shared\Domain\Bus\Command\Command;
 
@@ -22,6 +22,6 @@ final class DeleteBoardByIdCommand implements Command
 
     public function commandName(): string
     {
-        return 'kanban.board.create';
+        return 'kanban.board.delete';
     }
 }

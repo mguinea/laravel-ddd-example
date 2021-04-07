@@ -10,12 +10,14 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
+        "ext-pdo": "*",
         "aws/aws-sdk-php": "~3.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "zircote/swagger-php": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -52,14 +54,14 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php apps/kanban-api/artisan package:discover --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.dist', '.env');\"",
             "@php -r \"file_exists('.env.testing') || copy('.env.dist', '.env.testing');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+            "@php apps/kanban-api/artisan key:generate --ansi"
         ]
     }
 }

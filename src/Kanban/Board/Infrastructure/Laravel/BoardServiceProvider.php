@@ -22,9 +22,4 @@ class BoardServiceProvider extends ServiceProvider
             EloquentBoardRepository::class
         );
     }
-
-    public function boot()
-    {
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-    }
 }

@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Kanban\Board\Application\Create;
+namespace App\Kanban\Board\Application\Update;
 
 use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Domain\BoardName;
+use App\Kanban\Board\Domain\BoardNotFound;
 use App\Kanban\Board\Infrastructure\Persistence\Eloquent\BoardRepository;
 use App\Shared\Domain\Bus\Command\CommandHandler;
 
-final class CreateBoardCommandHandler implements CommandHandler
+final class UpdateBoardCommandHandler implements CommandHandler
 {
     private BoardRepository $repository;
 
@@ -19,11 +20,16 @@ final class CreateBoardCommandHandler implements CommandHandler
         $this->repository = $repository;
     }
 
-    public function __invoke(CreateBoardCommand $command): void
+    public function __invoke(UpdateBoardCommand $command): void
     {
         $id = BoardId::fromValue($command->id());
-        $name = BoardName::fromValue($command->name());
+        $board = $this->repository->find($id);
 
+        if (null === $board) {
+            throw new BoardNotFound;
+        }
+
+        $name = BoardName::fromValue($command->name());
         $board = Board::fromPrimitives(
             $id->value(),
             $name->value()

@@ -6,7 +6,7 @@ interface BoardRepository
 {
     public function delete(BoardId $id): void;
 
-    public function find($id): ?Board;
+    public function find(BoardId $id): ?Board;
 
     public function save(Board $board): void;
 
