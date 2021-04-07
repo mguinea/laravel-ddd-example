@@ -7,6 +7,7 @@
     <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-2-green.svg?style=flat-square&logo=vue.js" alt="Vue.js"/></a>
     <a href="https://nuxtjs.org/"><img src="https://img.shields.io/badge/Nuxt-2-green.svg?style=flat-square&logo=nuxt.js" alt="Nuxt.js"/></a>
     <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind-2-blue.svg?style=flat-square&logo=tailwind-css" alt="Tailwind CSS"/></a>
+    <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-7-777BB4.svg?style=flat-square&logo=php" alt="PHP"/></a>
 </p>
 
 <p align="center">
