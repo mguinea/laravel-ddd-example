@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="#"><img src="https://img.shields.io/badge/Laravel-8-orange.svg?style=flat-square&logo=laravel" alt="Laravel 8"/></a>
-    <a href="#"><img src="https://img.shields.io/badge/Vue-green.svg?style=flat-square&logo=vuejs" alt="Vue.js"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/Vue-green.svg?style=flat-square&logo=vue.js" alt="Vue.js"/></a>
 </p>
 
 <p align="center">
