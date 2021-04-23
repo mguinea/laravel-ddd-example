@@ -6,7 +6,7 @@ namespace App\Kanban\Board\Application\Get;
 
 use App\Kanban\Board\Application\BoardResponse;
 use App\Kanban\Board\Domain\BoardId;
-use App\Kanban\Board\Domain\BoardNotFound;
+use App\Kanban\Board\Domain\BoardAlreadyExists;
 use App\Kanban\Board\Domain\BoardRepository;
 use App\Shared\Domain\Bus\Query\QueryHandler;
 
@@ -25,7 +25,7 @@ final class GetBoardByIdQueryHandler implements QueryHandler
         $board = $this->repository->find($id);
 
         if (null === $board) {
-            throw new BoardNotFound;
+            throw new BoardAlreadyExists;
         }
 
         return BoardResponse::fromBoard($board);

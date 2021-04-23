@@ -12,12 +12,15 @@
     <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-3-2496ED.svg?style=flat-square&logo=docker" alt="Docker"/></a>
     <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/mysql-8-4479A1.svg?style=flat-square&logo=mysql" alt="MySql"/></a>
     <a href="https://www.sqlite.org/index.html"><img src="https://img.shields.io/badge/sqlite-3-003B57.svg?style=flat-square&logo=sqlite" alt="SQLite"/></a>
-    <a href="h#"><img src="https://img.shields.io/badge/github_actions-2088FF.svg?style=flat-square&logo=github-actions" alt="Github Actions"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/github_actions-2088FF.svg?style=flat-square&logo=github-actions" alt="Github Actions"/></a>
 </p>
 
 <p align="center">
   This is a monorepo containing a <strong>PHP application using Domain-Driven Design (DDD) and Command Query Responsibility Segregation
   (CQRS) principles</strong>. It also has a front in <strong>Vue.js and Nuxt.js</strong>.
+  <br />
+  <br />
+  It's a basic implementation of a Kanban manager (at this moment, just only manages Kanban entity; not columns or tasks)
   <br />
   <br />
   <a href="https://github.com/mguinea/laravel-ddd-example/issues">Report a bug</a>
@@ -31,20 +34,70 @@
 
 ## Installation
 
-### Requirements
+### Requirements 
+- [Install Docker](https://www.docker.com/get-started)
 
 ### Environment
 
+- Clone this project: `git clone https://github.com/mguinea/laravel-ddd-example laravel-ddd-example`
+- Move to the project folder: `cd laravel-ddd-example`
+- Create a local environment file `cp .env.dist .env`
+
 ### Execution
 
+
+    Install all the dependencies and bring up the project with Docker executing: make build
+    Then you'll have 3 apps available (2 APIs and 1 Frontend):
+        Mooc Backend: http://localhost:8030/health-check
+        Backoffice Backend: http://localhost:8040/health-check
+        Backoffice Frontend: http://localhost:8041/health-check
+
+
 ### Tests
+
+nstall the dependencies if you haven't done it previously: make deps
+Execute PHPUnit and Behat tests: make test
+
+
+## Monitoring
+
+TODO
 
 ## Project structure and explanation
 
 ### Bounded contexts
 
-### Architecture
+
+    Mooc: Place to look in if you wanna see some code slightly_smiling_face. Massive Open Online Courses public platform with users, videos, notifications, and so on.
+    Backoffice: Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
+
+
+### Architecture and Structure
+
+This repository follows the Hexagonal Architecture pattern. Also, it's structured using modules. With this, we can see that the current structure of a Bounded Context is:
 
 #### Repositories
 
+Repository pattern
+
+Our repositories try to be as simple as possible usually only containing 2 methods search and save. If we need some query with more filters we use the Specification pattern also known as Criteria pattern. So we add a searchByCriteria method.
+
+You can see an example here and its implementation here.
+
 #### CQRS
+
+ommand Bus
+
+There is 1 implementations of the command bus.
+
+    Sync using the Symfony Message Bus
+
+Query Bus
+
+The Query Bus uses the Symfony Message Bus.
+Event Bus
+
+The Event Bus uses the Symfony Message Bus. The MySql Bus uses a MySql+Pulling as a bus. The RabbitMQ Bus uses RabbitMQ C extension.
+
+#### My conventions
+

@@ -7,8 +7,9 @@ namespace App\Kanban\Board\Application\Update;
 use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Domain\BoardName;
+use App\Kanban\Board\Domain\BoardAlreadyExists;
 use App\Kanban\Board\Domain\BoardNotFound;
-use App\Kanban\Board\Infrastructure\Persistence\Eloquent\BoardRepository;
+use App\Kanban\Board\Domain\BoardRepository;
 use App\Shared\Domain\Bus\Command\CommandHandler;
 
 final class UpdateBoardCommandHandler implements CommandHandler
@@ -26,7 +27,7 @@ final class UpdateBoardCommandHandler implements CommandHandler
         $board = $this->repository->find($id);
 
         if (null === $board) {
-            throw new BoardNotFound;
+            throw new BoardNotFound();
         }
 
         $name = BoardName::fromValue($command->name());

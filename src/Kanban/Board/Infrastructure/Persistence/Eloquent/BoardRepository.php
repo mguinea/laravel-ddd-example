@@ -6,7 +6,7 @@ namespace App\Kanban\Board\Infrastructure\Persistence\Eloquent;
 
 use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\BoardId;
-use App\Kanban\Board\Domain\BoardNotFound;
+use App\Kanban\Board\Domain\BoardAlreadyExists;
 use App\Kanban\Board\Domain\BoardRepository as BoardRepositoryInterface;
 use App\Kanban\Board\Domain\Boards;
 use Exception;
@@ -26,7 +26,7 @@ final class BoardRepository implements BoardRepositoryInterface
         $board = $this->model->find($id->value());
 
         if (null === $board) {
-            throw new BoardNotFound;
+            throw new BoardAlreadyExists;
         }
 
         $board->delete();

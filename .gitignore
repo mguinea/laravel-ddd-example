@@ -14,7 +14,7 @@ apps/kanban-front/.nuxt
 /vendor
 .env
 .env.backup
-.end.test
+.env.test
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
