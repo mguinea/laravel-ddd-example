@@ -20,7 +20,7 @@
   (CQRS) principles</strong>. It also has a front in <strong>Vue.js and Nuxt.js</strong>.
   <br />
   <br />
-  It's a basic implementation of a Kanban manager (at this moment, just only manages Kanban entity; not columns or tasks)
+  It's a basic implementation of a Kanban manager (at this moment, just only manages Board entity; not columns or tasks)
   <br />
   <br />
   <a href="https://github.com/mguinea/laravel-ddd-example/issues">Report a bug</a>
@@ -45,19 +45,17 @@
 
 ### Execution
 
-
-    Install all the dependencies and bring up the project with Docker executing: make build
-    Then you'll have 3 apps available (2 APIs and 1 Frontend):
-        Mooc Backend: http://localhost:8030/health-check
-        Backoffice Backend: http://localhost:8040/health-check
-        Backoffice Frontend: http://localhost:8041/health-check
-
+Install all the dependencies and bring up the project with Docker executing: `make install`
+    
+Then you'll have 2 apps available (1 API and 1 Frontend):
+1. Kanban API: http://localhost:8180/api/v1/kanban/health-check
+2. Kanban Frontend: TBD
 
 ### Tests
 
-nstall the dependencies if you haven't done it previously: make deps
-Execute PHPUnit and Behat tests: make test
+Install the dependencies if you haven't done it previously: `make composer-install`
 
+Execute all test suites: `make tests`
 
 ## Monitoring
 
@@ -67,37 +65,103 @@ TODO
 
 ### Bounded contexts
 
-
-    Mooc: Place to look in if you wanna see some code slightly_smiling_face. Massive Open Online Courses public platform with users, videos, notifications, and so on.
-    Backoffice: Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
-
+Kanban: Place where the main functionality is implemented. Management of boards, columns, tasks...
 
 ### Architecture and Structure
 
 This repository follows the Hexagonal Architecture pattern. Also, it's structured using modules. With this, we can see that the current structure of a Bounded Context is:
 
+```scala
+$ tree -L 4 src
+
+src
+├── Kanban
+│   ├── Board
+│   │   ├── Application
+│   │   │   ├── BoardResponse.php
+│   │   │   ├── BoardsResponse.php
+│   │   │   ├── Create
+│   │   │   ├── Delete
+│   │   │   ├── Get
+│   │   │   ├── Search
+│   │   │   └── Update
+│   │   ├── Domain
+│   │   │   ├── BoardAlreadyExists.php
+│   │   │   ├── BoardId.php
+│   │   │   ├── BoardName.php
+│   │   │   ├── BoardNotFound.php
+│   │   │   ├── Board.php
+│   │   │   ├── BoardRepository.php
+│   │   │   └── Boards.php
+│   │   └── Infrastructure
+│   │       ├── Laravel
+│   │       └── Persistence
+│   └── Shared
+│       └── Infrastructure
+│           └── Laravel
+└── Shared
+    ├── Domain
+    │   ├── Aggregate
+    │   │   └── AggregateRoot.php
+    │   ├── Bus
+    │   │   ├── Command
+    │   │   ├── Event
+    │   │   └── Query
+    │   ├── CollectionInterface.php
+    │   ├── Collection.php
+    │   ├── Criteria
+    │   │   ├── Criteria.php
+    │   │   ├── FilterField.php
+    │   │   ├── FilterOperator.php
+    │   │   ├── Filter.php
+    │   │   ├── Filters.php
+    │   │   ├── FilterValue.php
+    │   │   ├── OrderBy.php
+    │   │   ├── Order.php
+    │   │   └── OrderType.php
+    │   ├── DomainException.php
+    │   └── ValueObject
+    │       ├── EnumValueObject.php
+    │       ├── StringValueObject.php
+    │       └── UuidValueObject.php
+    └── Infrastructure
+        ├── Bus
+        │   └── Laravel
+        ├── InfrastructureException.php
+        └── Laravel
+            └── SharedServiceProvider.php
+
+```
+
 #### Repositories
 
 Repository pattern
 
-Our repositories try to be as simple as possible usually only containing 2 methods search and save. If we need some query with more filters we use the Specification pattern also known as Criteria pattern. So we add a searchByCriteria method.
-
-You can see an example here and its implementation here.
+Our repositories try to be as simple as possible usually only containing basic CRUD methods (delete, find, save and search). 
+If we need some query with more filters we use the Specification pattern also known as Criteria pattern. So we add a `search` method.
 
 #### CQRS
 
-ommand Bus
-
-There is 1 implementations of the command bus.
-
-    Sync using the Symfony Message Bus
-
-Query Bus
-
-The Query Bus uses the Symfony Message Bus.
-Event Bus
-
-The Event Bus uses the Symfony Message Bus. The MySql Bus uses a MySql+Pulling as a bus. The RabbitMQ Bus uses RabbitMQ C extension.
+Laravel Job has been used to implement commands, queries and events.
 
 #### My conventions
+
+There are some opinionated resolutions / approaches in this project.
+
+##### Generic methods (CRUDs)
+
+> `get` retrieve an entity. If not found, throw an exception.
+
+> `find` retrieve an entity. If not found, return null.
+
+> `delete` delete an entity. If not found, throw an exception.
+
+> `create` create an entity. If found, throw an exception.
+
+> `update` update an entity. If not found, throw an exception.
+
+> `search` retrieve a collection of entities by criteria. If nothing found, returns an empty collection.
+
+> `listing` retrieve a collection of entities with no criteria. If nothing found, returns an empty collection.
+
 

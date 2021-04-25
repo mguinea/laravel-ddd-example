@@ -1,5 +1,12 @@
 install:
 	@docker network inspect laravel-ddd-example > /dev/null || docker network create laravel-ddd-example
+	@make composer-install
+
+composer-install:
+	@docker exec -it kanban-api-php composer install
+
+composer-update:
+	@docker exec -it kanban-api-php composer update
 
 up:
 	@docker-compose up -d --force-recreate

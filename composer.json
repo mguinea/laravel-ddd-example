@@ -1,67 +1,67 @@
 {
-    "name": "mguinea/laravel-ddd-example",
-    "type": "project",
-    "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Monorepository",
-    "keywords": [
-        "ddd",
-        "laravel"
-    ],
-    "license": "MIT",
-    "require": {
-        "php": "^7.4|^8.0",
-        "ext-json": "*",
-        "ext-pdo": "*",
-        "aws/aws-sdk-php": "~3.0",
-        "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5",
-        "zircote/swagger-php": "^3.1"
-    },
-    "require-dev": {
-        "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.4",
-        "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/",
-            "Apps\\KanbanApi\\": "apps/kanban-api/app/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/",
-            "Apps\\KanbanApi\\Tests\\": "apps/kanban-api/tests/"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php apps/kanban-api/artisan package:discover --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.dist', '.env');\"",
-            "@php -r \"file_exists('.env.testing') || copy('.env.dist', '.env.testing');\""
-        ],
-        "post-create-project-cmd": [
-            "@php apps/kanban-api/artisan key:generate --ansi"
-        ]
+  "name": "mguinea/laravel-ddd-example",
+  "type": "project",
+  "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Laravel Monorepository",
+  "keywords": [
+    "ddd",
+    "laravel"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.4|^8.0",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "aws/aws-sdk-php": "~3.0",
+    "fideloper/proxy": "^4.4",
+    "fruitcake/laravel-cors": "^2.0",
+    "guzzlehttp/guzzle": "^7.0.1",
+    "laravel/framework": "^8.12",
+    "laravel/tinker": "^2.5",
+    "zircote/swagger-php": "^3.1"
+  },
+  "require-dev": {
+    "facade/ignition": "^2.5",
+    "fakerphp/faker": "^1.9.1",
+    "laravel/sail": "^1.4",
+    "mockery/mockery": "^1.4.2",
+    "nunomaduro/collision": "^5.0",
+    "phpunit/phpunit": "^9.3.3"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "dont-discover": []
     }
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "Apps\\KanbanApi\\": "apps/kanban-api/app/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/",
+      "Apps\\KanbanApi\\Tests\\": "apps/kanban-api/tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php apps/kanban-api/artisan package:discover --ansi"
+    ],
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.dist', '.env');\"",
+      "@php -r \"file_exists('.env.testing') || copy('.env.dist', '.env.testing');\""
+    ],
+    "post-create-project-cmd": [
+      "@php apps/kanban-api/artisan key:generate --ansi"
+    ]
+  }
 }
