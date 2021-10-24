@@ -6,13 +6,10 @@ namespace App\Kanban\Board\Domain;
 
 final class Board
 {
-    private BoardId $id;
-    private BoardName $name;
-
-    public function __construct(BoardId $id, BoardName $name)
-    {
-        $this->id = $id;
-        $this->name = $name;
+    public function __construct(
+        private BoardId $id,
+        private BoardName $name
+    ) {
     }
 
     public static function fromPrimitives(string $id, string $name): self
