@@ -162,12 +162,11 @@ src
 
 Repository pattern
 
-Our repositories try to be as simple as possible usually only containing basic CRUD methods (delete, find, save and search). 
-If we need some query with more filters we use the Specification pattern also known as Criteria pattern. So we add a `search` method.
+Our repositories try to be as simple as possible usually only containing basic CRUD methods (delete, find, save and list).
 
 #### CQRS
 
-Laravel Job has been used to implement commands, queries and events.
+Symfony Messenger has been used to implement commands, queries and events.
 
 #### My conventions
 
