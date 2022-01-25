@@ -15,7 +15,8 @@ final class HealthCheckController
             [
                 'kanban-api-status' => 'ok'
             ],
-            Response::HTTP_OK
+            Response::HTTP_OK,
+            ['Access-Control-Allow-Origin' => '*']
         );
     }
 }

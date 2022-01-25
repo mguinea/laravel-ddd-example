@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Infrastructure\Bus\Laravel;
+namespace App\Shared\Infrastructure\Bus\Messenger;
 
 use App\Shared\Infrastructure\InfrastructureException;
 use Throwable;
 
-class QueryBusException extends InfrastructureException
+final class CommandNotRegistered extends InfrastructureException
 {
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {
-        $message = "" === $message ? "Query bus exception" : $message;
-
+        $message = "" === $message ? "Command not registered" : $message;
         parent::__construct($message, $code, $previous);
     }
 }

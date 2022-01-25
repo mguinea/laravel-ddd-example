@@ -6,5 +6,4 @@ namespace App\Shared\Domain\Bus\Query;
 
 interface Query
 {
-    public function queryName(): string;
 }

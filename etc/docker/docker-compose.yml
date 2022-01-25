@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+
+  laravel-ddd-example.db:
+    container_name: laravel-ddd-example.db
+    env_file:
+      - ./../../.env
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE-example}
+      MYSQL_USER: ${DB_USERNAME-example}
+      MYSQL_PASSWORD: ${DB_PASSWORD-secret}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD-secret}
+      SERVICE_NAME: mysql
+      SERVICE_TAGS: dev
+    image: mysql:5.7
+    networks:
+      - laravel-ddd-example
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - laravel-ddd-example.dbdata:/var/lib/mysql/
+      - ./../../etc/mysql/my.cnf:/etc/mysql/my.cnf
+
+  laravel-ddd-example.kanban-api:
+    build:
+      context: ./../../
+      dockerfile: ./etc/docker/php.Dockerfile
+    command: php -S laravel-ddd-example.kanban-api:8080 -t ./apps/kanban-api/public
+    container_name: laravel-ddd-example.kanban-api
+    depends_on:
+      - laravel-ddd-example.db
+    env_file:
+      - ./../../.env
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    networks:
+      - laravel-ddd-example
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./../../:/var/www
+      - ./../../etc/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    working_dir: /var/www
+
+networks:
+  laravel-ddd-example:
+    driver: bridge
+
+volumes:
+  laravel-ddd-example.dbdata:
+    driver: local

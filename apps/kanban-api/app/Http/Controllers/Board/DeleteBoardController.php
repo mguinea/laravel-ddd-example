@@ -12,11 +12,8 @@ use Illuminate\Http\Response;
 
 final class DeleteBoardController
 {
-    private CommandBus $commandBus;
-
-    public function __construct(CommandBus $commandBus)
+    public function __construct(private CommandBus $commandBus)
     {
-        $this->commandBus = $commandBus;
     }
 
     public function __invoke(Request $request, string $id): JsonResponse
@@ -27,7 +24,8 @@ final class DeleteBoardController
 
         return new JsonResponse(
             null,
-            Response::HTTP_NO_CONTENT
+            Response::HTTP_NO_CONTENT,
+            ['Access-Control-Allow-Origin' => '*']
         );
     }
 }
