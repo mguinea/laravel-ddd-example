@@ -7,26 +7,26 @@ namespace Apps\KanbanApi\Http\Controllers\Board;
 use App\Kanban\Board\Application\Create\CreateBoardCommand;
 use App\Kanban\Board\Domain\BoardId;
 use App\Shared\Domain\Bus\Command\CommandBus;
+use App\Shared\Domain\UuidGenerator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 final class CreateBoardController
 {
-    private CommandBus $commandBus;
-
-    public function __construct(CommandBus $commandBus)
-    {
-        $this->commandBus = $commandBus;
+    public function __construct(
+        private CommandBus    $commandBus,
+        private UuidGenerator $uuidGenerator
+    ) {
     }
 
     public function __invoke(Request $request): JsonResponse
     {
-        $id = BoardId::random();
+        $id = $this->uuidGenerator->generate();
 
         $this->commandBus->dispatch(
             new CreateBoardCommand(
-                $id->value(),
+                $id,
                 $request->get('name')
             )
         );
@@ -34,10 +34,11 @@ final class CreateBoardController
         return new JsonResponse(
             [
                 'board' => [
-                    'id' => $id->value()
+                    'id' => $id
                 ]
             ],
-            Response::HTTP_OK
+            Response::HTTP_OK,
+            ['Access-Control-Allow-Origin' => '*']
         );
     }
 }

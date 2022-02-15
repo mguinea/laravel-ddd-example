@@ -1,48 +1,43 @@
-install:
-	@docker network inspect laravel-ddd-example > /dev/null || docker network create laravel-ddd-example
-	@make composer-install
+PROJECT_NAME := laravel-ddd-example
+DOCKER_COMPOSE = docker-compose -p $(PROJECT_NAME) -f etc/docker/docker-compose.yml
 
-composer-install:
-	@docker exec -it kanban-api-php composer install
+build:
+	$(DOCKER_COMPOSE) build
 
-composer-update:
-	@docker exec -it kanban-api-php composer update
+create-network:
+	@docker network create laravel-ddd-example
 
 up:
-	@docker-compose up -d --force-recreate
+	$(DOCKER_COMPOSE) up -d --force-recreate
+
+vendors:
+	@docker exec -it laravel-ddd-example.kanban-api composer install
+
+bash:
+	@docker exec -it laravel-ddd-example.kanban-api bash
+
+bash-db:
+	@docker exec -it -w / laravel-ddd-example.db bash
 
 restart:
-	@docker-compose restart
+	$(DOCKER_COMPOSE) restart
+
+stop:
+	$(DOCKER_COMPOSE) stop
 
 destroy:
-	@docker-compose down
-	@docker-compose rm -f
+	$(DOCKER_COMPOSE) down
+	$(DOCKER_COMPOSE) rm -f
 
 services:
-	@docker-compose ps
+	$(DOCKER_COMPOSE) ps
 
 networks:
 	@docker network ls
 
 migrate:
-	@docker exec -it kanban-api-php php apps/kanban-api/artisan migrate
-
-migrate-fresh:
-	@docker exec -it kanban-api-php php apps/kanban-api/artisan migrate:fresh
-
-bash:
-	@docker exec -it kanban-api-php bash
+	@docker exec -it laravel-ddd-example.kanban-api php apps/kanban-api/artisan migrate
 
 .PHONY: tests
 tests:
-	@make core-tests
-	@make kanban-api-tests
-
-core-tests:
-	@docker exec -it kanban-api-php php vendor/bin/phpunit --order-by=random
-
-kanban-api-tests:
-	@docker exec -it kanban-api-php php vendor/bin/phpunit apps/kanban-api/tests --order-by=random
-
-kanban-front-tests:
-	@docker exec -it kanban-front-webserver npm run test
+	@docker exec -it laravel-ddd-example.kanban-api php vendor/bin/phpunit apps/kanban-api/tests --order-by=random

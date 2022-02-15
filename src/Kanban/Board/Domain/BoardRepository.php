@@ -8,7 +8,7 @@ interface BoardRepository
 
     public function find(BoardId $id): ?Board;
 
-    public function save(Board $board): void;
+    public function list(): Boards;
 
-    public function search(): Boards;
+    public function save(Board $board): void;
 }

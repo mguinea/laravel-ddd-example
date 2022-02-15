@@ -54,19 +54,6 @@ $app->useEnvironmentPath(dirname(__DIR__ . '/../../../../'));
 
 /*
 |--------------------------------------------------------------------------
-| Service providers
-|--------------------------------------------------------------------------
-|
-| We load manually app service providers from our modules
-|
-*/
-
-$app->register(\App\Shared\Infrastructure\Laravel\SharedServiceProvider::class);
-$app->register(\App\Kanban\Board\Infrastructure\Laravel\BoardServiceProvider::class);
-$app->register(\App\Kanban\Shared\Infrastructure\Laravel\SharedServiceProvider::class);
-
-/*
-|--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
 |

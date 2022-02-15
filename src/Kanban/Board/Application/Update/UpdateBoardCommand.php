@@ -8,13 +8,8 @@ use App\Shared\Domain\Bus\Command\Command;
 
 final class UpdateBoardCommand implements Command
 {
-    private string $id;
-    private string $name;
-
-    public function __construct(string $id, string $name)
+    public function __construct(private string $id, private string $name)
     {
-        $this->id = $id;
-        $this->name = $name;
     }
 
     public function id(): string
@@ -25,10 +20,5 @@ final class UpdateBoardCommand implements Command
     public function name(): string
     {
         return $this->name;
-    }
-
-    public function commandName(): string
-    {
-        return 'kanban.board.update';
     }
 }

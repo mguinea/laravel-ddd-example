@@ -6,5 +6,4 @@ namespace App\Shared\Domain\Bus\Command;
 
 interface Command
 {
-    public function commandName(): string;
 }

@@ -166,14 +166,15 @@ return [
          * Package Service Providers...
          */
 
+
         /*
          * Application Service Providers...
          */
         Apps\KanbanApi\Providers\AppServiceProvider::class,
         Apps\KanbanApi\Providers\AuthServiceProvider::class,
+        Apps\KanbanApi\Providers\BoardServiceProvider::class,
         Apps\KanbanApi\Providers\EventServiceProvider::class,
         Apps\KanbanApi\Providers\RouteServiceProvider::class,
-
     ],
 
     /*

@@ -9,6 +9,7 @@ use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Domain\BoardAlreadyExists;
 use App\Kanban\Board\Domain\BoardRepository as BoardRepositoryInterface;
 use App\Kanban\Board\Domain\Boards;
+use App\Shared\Infrastructure\Persistence\Eloquent\EloquentException;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -21,12 +22,15 @@ final class BoardRepository implements BoardRepositoryInterface
         $this->model = $model;
     }
 
+    /**
+     * @throws BoardAlreadyExists
+     */
     public function delete(BoardId $id): void
     {
         $board = $this->model->find($id->value());
 
         if (null === $board) {
-            throw new BoardAlreadyExists;
+            throw new BoardAlreadyExists();
         }
 
         $board->delete();
@@ -51,30 +55,7 @@ final class BoardRepository implements BoardRepositoryInterface
         );
     }
 
-    public function save(Board $board): void
-    {
-        $boardModel = $this->toModel($board);
-
-        DB::beginTransaction();
-        try {
-            $boardModel->save();
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollBack();
-            throw new Exception('TODO eloquent exception');
-        }
-    }
-
-    private function toModel(Board $board): BoardModel
-    {
-        $boardModel = new BoardModel;
-        $boardModel->id = $board->id()->value();
-        $boardModel->name = $board->name()->value();
-
-        return $boardModel;
-    }
-
-    public function search(): Boards
+    public function list(): Boards
     {
         $eloquentBoards = $this->model->all();
 
@@ -85,5 +66,34 @@ final class BoardRepository implements BoardRepositoryInterface
         )->toArray();
 
         return new Boards($boards);
+    }
+
+    /**
+     * @throws EloquentException
+     */
+    public function save(Board $board): void
+    {
+        $boardModel = $this->model->find($board->id()->value());
+
+        if (null === $boardModel) {
+            $boardModel = new BoardModel;
+            $boardModel->id = $board->id()->value();
+            $boardModel->name = $board->name()->value();
+        } else {
+            $boardModel->name = $board->name()->value();
+        }
+
+        DB::beginTransaction();
+        try {
+            $boardModel->save();
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw new EloquentException(
+                $e->getMessage(),
+                $e->getCode(),
+                $e->getPrevious()
+            );
+        }
     }
 }

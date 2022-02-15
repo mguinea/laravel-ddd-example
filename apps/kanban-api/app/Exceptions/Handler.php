@@ -41,6 +41,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
+        // TODO
         if (app()->environment() === 'testing') {
             return;
         }

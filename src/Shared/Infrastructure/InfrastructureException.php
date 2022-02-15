@@ -6,7 +6,6 @@ namespace App\Shared\Infrastructure;
 
 use Exception;
 
-class InfrastructureException extends Exception
+abstract class InfrastructureException extends Exception
 {
-
 }
