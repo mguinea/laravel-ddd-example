@@ -47,5 +47,13 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "scripts": {
+    "bash": "scripts/bash.sh",
+    "build": "scripts/build.sh",
+    "destroy": "scripts/destroy.sh",
+    "migrate": "scripts/migrate.sh",
+    "tests": "scripts/tests.sh",
+    "up": "scripts/up.sh"
+  }
 }
