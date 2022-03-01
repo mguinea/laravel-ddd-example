@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+set -eo pipefail
 
-source "etc/envs/commons.env"
+source "./etc/envs/commons.env"
 
 # Clean up everything
 $DOCKER_COMPOSE down

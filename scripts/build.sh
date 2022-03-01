@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+set -eo pipefail
 
-source "etc/envs/commons.env"
+source "./etc/envs/commons.env"
 
 # Create .env file from .env.dist
 cp -n ".env.dist" ".env"

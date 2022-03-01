@@ -119,3 +119,7 @@ Our repositories try to be as simple as possible usually only containing basic C
 #### CQRS
 
 Symfony Messenger has been used to implement commands, queries and events.
+
+## References
+
+- [Bash best practices](https://gist.github.com/leolorenzoluis/0aad69719267536d0b7a79946edbfcb7)
