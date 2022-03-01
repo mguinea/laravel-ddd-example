@@ -10,14 +10,14 @@ use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Domain\BoardName;
 use App\Kanban\Board\Domain\BoardRepository;
 use App\Shared\Domain\Bus\Command\CommandHandler;
+use App\Shared\Domain\Bus\Event\EventBus;
 
 final class CreateBoardCommandHandler implements CommandHandler
 {
-    private BoardRepository $repository;
-
-    public function __construct(BoardRepository $repository)
-    {
-        $this->repository = $repository;
+    public function __construct(
+        private BoardRepository $repository,
+        private EventBus $eventBus
+    ) {
     }
 
     public function __invoke(CreateBoardCommand $command): void
@@ -37,5 +37,6 @@ final class CreateBoardCommandHandler implements CommandHandler
         );
 
         $this->repository->save($board);
+        $this->eventBus->publish(...$board->pullDomainEvents());
     }
 }
