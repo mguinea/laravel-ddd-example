@@ -6,6 +6,7 @@ namespace App\Shared\Infrastructure\Bus\Messenger;
 
 use App\Shared\Domain\Bus\Event\DomainEvent;
 use App\Shared\Domain\Bus\Event\EventBus;
+use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
 use Symfony\Component\Messenger\Handler\HandlersLocator;
@@ -35,6 +36,7 @@ final class MessengerEventBus implements EventBus
             try {
                 $this->bus->dispatch(new Envelope($event));
             } catch (NoHandlerForMessageException) {
+                // TODO optionally throw exception or not
             }
         }
     }

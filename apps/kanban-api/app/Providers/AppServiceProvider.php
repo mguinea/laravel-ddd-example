@@ -3,6 +3,7 @@
 namespace Apps\KanbanApi\Providers;
 
 use App\Shared\Domain\Bus\Command\CommandBus;
+use App\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use App\Shared\Domain\Bus\Event\EventBus;
 use App\Shared\Domain\Bus\Query\QueryBus;
 use App\Shared\Domain\UuidGenerator;
@@ -41,7 +42,6 @@ class AppServiceProvider extends ServiceProvider
                 return new MessengerCommandBus($app->tagged('command_handler'));
             }
         );
-
 
         $this->app->bind(
             UuidGenerator::class,

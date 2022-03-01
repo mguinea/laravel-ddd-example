@@ -30,12 +30,7 @@ final class CreateBoardCommandHandler implements CommandHandler
         }
 
         $name = BoardName::fromValue($command->name());
-
-        $board = Board::fromPrimitives(
-            $id->value(),
-            $name->value()
-        );
-
+        $board = Board::create($id, $name);
         $this->repository->save($board);
         $this->eventBus->publish(...$board->pullDomainEvents());
     }

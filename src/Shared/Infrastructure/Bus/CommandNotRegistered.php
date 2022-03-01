@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Infrastructure\Bus\Messenger;
+namespace App\Shared\Infrastructure\Bus;
 
 use App\Shared\Infrastructure\InfrastructureException;
 use Throwable;

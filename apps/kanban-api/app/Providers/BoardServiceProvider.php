@@ -8,6 +8,7 @@ use App\Kanban\Board\Application\Create\CreateBoardCommandHandler;
 use App\Kanban\Board\Application\Delete\DeleteBoardByIdCommandHandler;
 use App\Kanban\Board\Application\Get\GetBoardByIdQueryHandler;
 use App\Kanban\Board\Application\Listing\ListBoardsQueryHandler;
+use App\Kanban\Board\Application\Subscriber\SomethingWithCreatedBoardSubscriber;
 use App\Kanban\Board\Application\Update\UpdateBoardCommandHandler;
 use App\Kanban\Board\Domain\BoardRepository;
 use App\Kanban\Board\Infrastructure\Persistence\Eloquent\BoardRepository as EloquentBoardRepository;
@@ -16,11 +17,6 @@ use Illuminate\Support\ServiceProvider;
 final class BoardServiceProvider extends ServiceProvider
 {
     public function register()
-    {
-        $this->dependencyInjection();
-    }
-
-    private function dependencyInjection(): void
     {
         $this->app->bind(
             BoardRepository::class,
@@ -50,6 +46,11 @@ final class BoardServiceProvider extends ServiceProvider
         $this->app->tag(
             UpdateBoardCommandHandler::class,
             'command_handler'
+        );
+
+        $this->app->tag(
+            SomethingWithCreatedBoardSubscriber::class,
+            'domain_event_subscriber'
         );
     }
 }
