@@ -12,6 +12,7 @@
     <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-3-2496ED.svg?style=flat-square&logo=docker" alt="Docker"/></a>
     <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/mysql-5.7-4479A1.svg?style=flat-square&logo=mysql" alt="MySql"/></a>
     <a href="https://circleci.com/gh/mguinea/laravel-ddd-example/tree/master"><img src="https://circleci.com/gh/mguinea/laravel-ddd-example/tree/master.svg?style=svg" alt="CircleCI"/></a>
+    <a href="https://github.com/mguinea/laravel-ddd-example/actions"><img src="https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=master" alt="GithubActions"/></a>
 </p>
 
 <p align="center">
