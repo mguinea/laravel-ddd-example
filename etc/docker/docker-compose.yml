@@ -2,6 +2,26 @@ version: '3'
 
 services:
 
+  # Container just for unit tests of our core code at src folder
+  laravel-ddd-example.app:
+    build:
+      context: ./../../
+      dockerfile: ./etc/docker/php.Dockerfile
+    container_name: laravel-ddd-example.app
+    env_file:
+      - ./../../.env
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    networks:
+      - laravel-ddd-example
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./../../:/var/www
+      - ./../../etc/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    working_dir: /var/www
+
   laravel-ddd-example.db:
     container_name: laravel-ddd-example.db
     env_file:

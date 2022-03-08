@@ -7,7 +7,7 @@ namespace Tests\Kanban\Board\Application\Update;
 use App\Kanban\Board\Application\Update\UpdateBoardCommandHandler;
 use App\Kanban\Board\Domain\BoardNotFound;
 use Tests\Kanban\Board\BoardModuleUnitTestCase;
-use Tests\Kanban\Board\Domain\BoardBuilder;
+use Tests\Kanban\Board\Domain\BoardMother;
 
 final class UpdateBoardCommandHandlerTest extends BoardModuleUnitTestCase
 {
@@ -22,11 +22,11 @@ final class UpdateBoardCommandHandlerTest extends BoardModuleUnitTestCase
 
     public function testItShouldUpdateABoard(): void
     {
-        $board = (new BoardBuilder())->build();
-        $command = (new UpdateBoardCommandBuilder())
-            ->withId($board->id()->value())
-            ->withName($board->name()->value())
-            ->build();
+        $board = BoardMother::create();
+        $command = UpdateBoardCommandMother::create(
+            $board->id(),
+            $board->name()
+        );
         $this->shouldFindById(
             $board->id(),
             $board
@@ -41,11 +41,11 @@ final class UpdateBoardCommandHandlerTest extends BoardModuleUnitTestCase
     {
         $this->expectException(BoardNotFound::class);
 
-        $board = (new BoardBuilder())->build();
-        $command = (new UpdateBoardCommandBuilder())
-            ->withId($board->id()->value())
-            ->withName($board->name()->value())
-            ->build();
+        $board = BoardMother::create();
+        $command = UpdateBoardCommandMother::create(
+            $board->id(),
+            $board->name()
+        );
         $this->shouldNotFindById(
             $board->id()
         );
