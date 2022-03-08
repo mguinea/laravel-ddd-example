@@ -8,7 +8,7 @@ use App\Kanban\Board\Application\BoardResponse;
 use App\Kanban\Board\Application\Get\GetBoardByIdQueryHandler;
 use App\Kanban\Board\Domain\BoardAlreadyExists;
 use Tests\Kanban\Board\BoardModuleUnitTestCase;
-use Tests\Kanban\Board\Domain\BoardBuilder;
+use Tests\Kanban\Board\Domain\BoardMother;
 
 final class GetBoardByIdQueryHandlerTest extends BoardModuleUnitTestCase
 {
@@ -23,10 +23,8 @@ final class GetBoardByIdQueryHandlerTest extends BoardModuleUnitTestCase
 
     public function testItShouldGetABoardById(): void
     {
-        $board = (new BoardBuilder())->build();
-        $query = (new GetBoardByIdQueryBuilder())
-            ->withId($board->id()->value())
-            ->build();
+        $board = BoardMother::create();
+        $query = GetBoardByIdQueryMother::create($board->id());
         $response = BoardResponse::fromBoard($board);
         $this->shouldFindById(
             $board->id(),
@@ -38,10 +36,8 @@ final class GetBoardByIdQueryHandlerTest extends BoardModuleUnitTestCase
 
     public function testItShouldNotGetABoardById(): void
     {
-        $board = (new BoardBuilder())->build();
-        $query = (new GetBoardByIdQueryBuilder())
-            ->withId($board->id()->value())
-            ->build();
+        $board = BoardMother::create();
+        $query = GetBoardByIdQueryMother::create($board->id());
         $this->shouldNotFindById(
             $board->id()
         );

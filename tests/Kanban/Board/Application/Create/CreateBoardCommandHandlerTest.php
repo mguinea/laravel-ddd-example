@@ -7,7 +7,7 @@ namespace Tests\Kanban\Board\Application\Create;
 use App\Kanban\Board\Application\Create\CreateBoardCommandHandler;
 use App\Kanban\Board\Domain\BoardAlreadyExists;
 use Tests\Kanban\Board\BoardModuleUnitTestCase;
-use Tests\Kanban\Board\Domain\BoardBuilder;
+use Tests\Kanban\Board\Domain\BoardMother;
 
 final class CreateBoardCommandHandlerTest extends BoardModuleUnitTestCase
 {
@@ -22,11 +22,11 @@ final class CreateBoardCommandHandlerTest extends BoardModuleUnitTestCase
 
     public function testItShouldCreateABoard(): void
     {
-        $board = (new BoardBuilder())->build();
-        $command = (new CreateBoardCommandBuilder())
-            ->withId($board->id()->value())
-            ->withName($board->name()->value())
-            ->build();
+        $board = BoardMother::create();
+        $command = CreateBoardCommandMother::create(
+            $board->id(),
+            $board->name()
+        );
         $this->shouldNotFindById(
             $board->id()
         );
@@ -40,11 +40,11 @@ final class CreateBoardCommandHandlerTest extends BoardModuleUnitTestCase
     {
         $this->expectException(BoardAlreadyExists::class);
 
-        $board = (new BoardBuilder())->build();
-        $command = (new CreateBoardCommandBuilder())
-            ->withId($board->id()->value())
-            ->withName($board->name()->value())
-            ->build();
+        $board = BoardMother::create();
+        $command = CreateBoardCommandMother::create(
+            $board->id(),
+            $board->name()
+        );
         $this->shouldNotSave($board);
 
         $this->dispatch($command, $this->handler);

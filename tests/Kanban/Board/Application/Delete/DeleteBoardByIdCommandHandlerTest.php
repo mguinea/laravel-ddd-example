@@ -7,7 +7,7 @@ namespace Tests\Kanban\Board\Application\Delete;
 use App\Kanban\Board\Application\Delete\DeleteBoardByIdCommandHandler;
 use App\Kanban\Board\Domain\BoardNotFound;
 use Tests\Kanban\Board\BoardModuleUnitTestCase;
-use Tests\Kanban\Board\Domain\BoardBuilder;
+use Tests\Kanban\Board\Domain\BoardMother;
 
 final class DeleteBoardByIdCommandHandlerTest extends BoardModuleUnitTestCase
 {
@@ -22,10 +22,8 @@ final class DeleteBoardByIdCommandHandlerTest extends BoardModuleUnitTestCase
 
     public function testItShouldDeleteABoard(): void
     {
-        $board = (new BoardBuilder())->build();
-        $command = (new DeleteBoardByIdCommandBuilder())
-            ->withId($board->id()->value())
-            ->build();
+        $board = BoardMother::create();
+        $command = DeleteBoardByIdCommandMother::create($board->id());
         $this->shouldFindById(
             $board->id(),
             $board
@@ -40,10 +38,8 @@ final class DeleteBoardByIdCommandHandlerTest extends BoardModuleUnitTestCase
     {
         $this->expectException(BoardNotFound::class);
 
-        $board = (new BoardBuilder())->build();
-        $command = (new DeleteBoardByIdCommandBuilder())
-            ->withId($board->id()->value())
-            ->build();
+        $board = BoardMother::create();
+        $command = DeleteBoardByIdCommandMother::create($board->id());
         $this->shouldNotFindById(
             $board->id()
         );
