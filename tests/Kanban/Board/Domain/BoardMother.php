@@ -20,8 +20,8 @@ final class BoardMother
     ): Board
     {
         return Board::fromPrimitives(
-            $id?->value() ?? BoardIdMother::create(),
-            $name?->value() ?? BoardNameMother::create()
+            $id?->value() ?? BoardIdMother::create()->value(),
+            $name?->value() ?? BoardNameMother::create()->value()
         );
     }
 }

@@ -6,7 +6,7 @@ namespace Tests\Kanban\Board\Application\Get;
 
 use App\Kanban\Board\Application\BoardResponse;
 use App\Kanban\Board\Application\Get\GetBoardByIdQueryHandler;
-use App\Kanban\Board\Domain\BoardAlreadyExists;
+use App\Kanban\Board\Domain\BoardNotFound;
 use Tests\Kanban\Board\BoardModuleUnitTestCase;
 use Tests\Kanban\Board\Domain\BoardMother;
 
@@ -42,6 +42,6 @@ final class GetBoardByIdQueryHandlerTest extends BoardModuleUnitTestCase
             $board->id()
         );
 
-        $this->assertAskThrowsException(BoardAlreadyExists::class, $query, $this->handler);
+        $this->assertAskThrowsException(BoardNotFound::class, $query, $this->handler);
     }
 }
