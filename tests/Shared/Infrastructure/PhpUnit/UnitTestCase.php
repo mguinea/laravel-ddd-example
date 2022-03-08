@@ -7,6 +7,7 @@ namespace Tests\Shared\Infrastructure\PhpUnit;
 use App\Shared\Domain\Bus\Command\Command;
 use App\Shared\Domain\Bus\Command\CommandBus;
 use App\Shared\Domain\Bus\Event\DomainEvent;
+use App\Shared\Domain\Bus\Event\EventBus;
 use App\Shared\Domain\Bus\Query\Query;
 use App\Shared\Domain\Bus\Query\QueryBus;
 use App\Shared\Domain\Bus\Query\Response;
@@ -21,6 +22,8 @@ abstract class UnitTestCase extends TestCase
     private QueryBus $queryBus;
     private $commandBusProphecy;
     private CommandBus $commandBus;
+    private $eventBusProphecy;
+    private EventBus $eventBus;
 
     protected function setUp(): void
     {
@@ -97,5 +100,18 @@ abstract class UnitTestCase extends TestCase
     protected function commandBusProphecy(): ObjectProphecy
     {
         return $this->commandBusProphecy = $this->commandBusProphecy ?? $this->prophecy(CommandBus::class);
+    }
+
+    /**
+     * @return object|EventBus
+     */
+    protected function eventBus()
+    {
+        return $this->eventBus = $this->eventBus ?? $this->eventBusProphecy()->reveal();
+    }
+
+    protected function eventBusProphecy(): ObjectProphecy
+    {
+        return $this->eventBusProphecy = $this->eventBusProphecy ?? $this->prophecy(EventBus::class);
     }
 }

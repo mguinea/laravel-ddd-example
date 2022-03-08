@@ -17,7 +17,10 @@ final class CreateBoardCommandHandlerTest extends BoardModuleUnitTestCase
     {
         parent::setUp();
 
-        $this->handler = new CreateBoardCommandHandler($this->repository());
+        $this->handler = new CreateBoardCommandHandler(
+            $this->repository(),
+            $this->eventBus()
+        );
     }
 
     public function testItShouldCreateABoard(): void
