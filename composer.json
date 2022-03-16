@@ -52,6 +52,7 @@
   "scripts": {
     "bash": "scripts/bash.sh",
     "build": "scripts/build.sh",
+    "coverage": "scripts/coverage.sh",
     "destroy": "scripts/destroy.sh",
     "migrate": "scripts/migrate.sh",
     "tests": "scripts/tests.sh",

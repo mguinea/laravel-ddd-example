@@ -87,10 +87,6 @@ Kanban: Place where the main functionality is implemented. Management of boards,
 
 ### Architecture and Structure
 
-`apps`
-
-`etc` Editable Text Configurations 
-
 This repository follows the Hexagonal Architecture pattern. Also, it's structured using modules. With this, we can see that the current structure:
 
 *Kanban bounded context* containing *Board module* and *Shared bonded context*.
