@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  title: Kanban API
+  description: Endpoints for the Kanban api
+  version: 0.4.0
+
+servers:
+  - url: http://localhost:8080/api/v1/kanban
+    description: Local development server
+
+paths:
+  '/boards':
+    post:
+      tags:
+        - Board
+      summary: Creation of a Board
+      description: Endpoint to create a Board
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: the uuid that identifies the board
+                  example: 2cf36307-1843-47df-bdc5-b7fdf3e50d12
+                name:
+                  type: string
+                  description: Name for the Kanban board
+                  example: "My awesome kanban board"
+      responses:
+        '200':
+          description: Creation of Board entity requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createBoardResponse'
+    get:
+      tags:
+        - Board
+      summary: List boards
+      description: Endpoint to get a list of boards
+      responses:
+        '200':
+          description: Retrieve a list of board entities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listBoardsResponse'
+  '/boards/{boardId}':
+    get:
+      tags:
+        - Board
+      summary: Get a Board
+      description: Endpoint to get a Board by its id
+      parameters:
+        - in: path
+          name: boardId
+          required: true
+          description: the uuid that identifies the board
+          example: 2cf36307-1843-47df-bdc5-b7fdf3e50d12
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Retrieve a board entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getBoardResponse'
+    patch:
+      tags:
+        - Board
+      summary: Update a Board
+      description: Endpoint to update a Board by its id
+      parameters:
+        - in: path
+          name: boardId
+          required: true
+          description: the uuid that identifies the board
+          example: 2cf36307-1843-47df-bdc5-b7fdf3e50d12
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Update of Board entity requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateBoardResponse'
+    delete:
+      tags:
+        - Board
+      summary: Delete a Board
+      description: Endpoint to delete a Board by its id
+      parameters:
+        - in: path
+          name: boardId
+          required: true
+          description: the uuid that identifies the board
+          example: 2cf36307-1843-47df-bdc5-b7fdf3e50d12
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Deletion of Board entity requested
+components:
+  schemas:
+    createBoardResponse:
+      description: Response when creating a new board
+      type: object
+      properties:
+        board:
+          type: object
+          properties:
+            id:
+              description: uuid of the generated Kanban
+              example: 2cf36307-1843-47df-bdc5-b7fdf3e50d12
+              type: string
+    getBoardResponse:
+      description: Response when getting a board
+      type: object
+      properties:
+        board:
+          type: object
+          properties:
+            id:
+              description: uuid of the retrieved Kanban
+              example: 2cf36307-1843-47df-bdc5-b7fdf3e50d12
+              type: string
+            name:
+              description: name of the retrieved Kanban
+              example: "My awesome kanban board"
+              type: string
+    listBoardsResponse:
+      description: Response when getting a list of boards
+      type: array
+      properties:
+        boards:
+          $ref: '#/components/schemas/getBoardResponse'
+    updateBoardResponse:
+      description: Response when updating a board
+      type: object
+      properties:
+        board:
+          type: object
+          properties:
+            name:
+              description: name of the retrieved Kanban
+              example: "My awesome updated kanban board"
+              type: string

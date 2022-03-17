@@ -9,12 +9,11 @@ use App\Shared\Domain\Bus\Query\Response;
 
 final class BoardsResponse implements Response
 {
-    /** @var array<BoardResponse> */
-    private array $boards;
-
-    public function __construct(array $boards)
+    /**
+     * @param array<BoardResponse> $boards
+     */
+    public function __construct(private array $boards)
     {
-        $this->boards = $boards;
     }
 
     public static function fromBoards(Boards $boards): self

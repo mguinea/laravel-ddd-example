@@ -9,13 +9,8 @@ use App\Shared\Domain\Bus\Query\Response;
 
 final class BoardResponse implements Response
 {
-    private string $id;
-    private string $name;
-
-    public function __construct(string $id, string $name)
+    public function __construct(private string $id, private string $name)
     {
-        $this->id = $id;
-        $this->name = $name;
     }
 
     public static function fromBoard(Board $board): self

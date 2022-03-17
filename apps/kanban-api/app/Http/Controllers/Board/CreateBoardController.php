@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Apps\KanbanApi\Http\Controllers\Board;
 
 use App\Kanban\Board\Application\Create\CreateBoardCommand;
-use App\Kanban\Board\Domain\BoardId;
 use App\Shared\Domain\Bus\Command\CommandBus;
 use App\Shared\Domain\UuidGenerator;
 use Illuminate\Http\JsonResponse;
@@ -15,14 +14,14 @@ use Illuminate\Http\Response;
 final class CreateBoardController
 {
     public function __construct(
-        private CommandBus    $commandBus,
+        private CommandBus $commandBus,
         private UuidGenerator $uuidGenerator
     ) {
     }
 
     public function __invoke(Request $request): JsonResponse
     {
-        $id = $this->uuidGenerator->generate();
+        $id = $request->get('id', $this->uuidGenerator->generate());
 
         $this->commandBus->dispatch(
             new CreateBoardCommand(
