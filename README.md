@@ -53,6 +53,10 @@ Install all the dependencies and bring up the project with Docker executing:
 `composer build`\
 `composer migrate`
 
+and run containers:
+
+`composer up`
+
     
 Then you'll have 2 apps available (1 API and 1 Frontend):
 
