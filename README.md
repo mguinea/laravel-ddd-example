@@ -61,7 +61,7 @@ Then you'll have 2 apps available (1 API and 1 Frontend):
 
 ### Tests
 
-Execute all test suites: `make tests`
+Execute all test suites: `composer tests`
 
 ## Project structure and explanation
 
