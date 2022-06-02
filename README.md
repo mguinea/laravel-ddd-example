@@ -37,7 +37,7 @@
 
 ## Installation
 
-### Requirements 
+### Requirements
 - [Install Docker](https://www.docker.com/get-started)
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 
@@ -125,3 +125,4 @@ Symfony Messenger has been used to implement commands, queries and events.
 ## References
 
 - [Bash best practices](https://gist.github.com/leolorenzoluis/0aad69719267536d0b7a79946edbfcb7)
+- [DDD Concepts](https://www.isaqb.org/blog/ddd-confusion-bounded-subdomain-context-module-or-what/)

@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - After deciding infra provider, setup Terraform, Ansible and Spinnaker
 - Kubernetes environment
 - Implement criteria pattern to make searches in repositories
+- KrakenD api gateway pattern: https://microservices.io/patterns/apigateway.html
 
 ## [0.0.0] - 2022-03-17
 ### Added

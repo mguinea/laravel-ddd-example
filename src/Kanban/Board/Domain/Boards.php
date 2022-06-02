@@ -8,5 +8,8 @@ use App\Shared\Domain\Collection;
 
 final class Boards extends Collection
 {
-
+    protected function type(): string
+    {
+        return Board::class;
+    }
 }

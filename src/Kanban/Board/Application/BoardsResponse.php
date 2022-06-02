@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Application;
 
+use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\Boards;
 use App\Shared\Domain\Bus\Query\Response;
 
@@ -19,7 +20,7 @@ final class BoardsResponse implements Response
     public static function fromBoards(Boards $boards): self
     {
         $boardResponses = array_map(
-            function ($board) {
+            function (Board $board) {
                 return BoardResponse::fromBoard($board);
             },
             $boards->all()
