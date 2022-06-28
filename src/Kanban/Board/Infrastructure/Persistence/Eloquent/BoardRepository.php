@@ -9,6 +9,7 @@ use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Domain\BoardAlreadyExists;
 use App\Kanban\Board\Domain\BoardRepository as BoardRepositoryInterface;
 use App\Kanban\Board\Domain\Boards;
+use App\Shared\Domain\Criteria\Criteria;
 use App\Shared\Infrastructure\Persistence\Eloquent\EloquentException;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -55,19 +56,6 @@ final class BoardRepository implements BoardRepositoryInterface
         );
     }
 
-    public function list(): Boards
-    {
-        $eloquentBoards = $this->model->all();
-
-        $boards = $eloquentBoards->map(
-            function (BoardModel $eloquentBoard) {
-                return $this->toDomain($eloquentBoard);
-            }
-        )->toArray();
-
-        return new Boards($boards);
-    }
-
     /**
      * @throws EloquentException
      */
@@ -95,5 +83,18 @@ final class BoardRepository implements BoardRepositoryInterface
                 $e->getPrevious()
             );
         }
+    }
+
+    public function search(Criteria $criteria): Boards
+    {
+        $eloquentBoards = $this->model->all();
+
+        $boards = $eloquentBoards->map(
+            function (BoardModel $eloquentBoard) {
+                return $this->toDomain($eloquentBoard);
+            }
+        )->toArray();
+
+        return new Boards($boards);
     }
 }

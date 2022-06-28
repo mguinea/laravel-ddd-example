@@ -8,15 +8,15 @@ use App\Kanban\Board\Application\BoardsResponse;
 use App\Kanban\Board\Domain\BoardRepository;
 use App\Shared\Domain\Bus\Query\QueryHandler;
 
-final class ListBoardsQueryHandler implements QueryHandler
+final class SearchBoardsQueryHandler implements QueryHandler
 {
     public function __construct(private BoardRepository $repository)
     {
     }
 
-    public function __invoke(ListBoardsQuery $query): BoardsResponse
+    public function __invoke(SearchBoardsQuery $query): BoardsResponse
     {
-        $boards = $this->repository->list();
+        $boards = $this->repository->search();
 
         return BoardsResponse::fromBoards($boards);
     }

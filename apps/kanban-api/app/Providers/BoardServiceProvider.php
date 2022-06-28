@@ -7,7 +7,7 @@ namespace Apps\KanbanApi\Providers;
 use App\Kanban\Board\Application\Create\CreateBoardCommandHandler;
 use App\Kanban\Board\Application\Delete\DeleteBoardByIdCommandHandler;
 use App\Kanban\Board\Application\Get\GetBoardByIdQueryHandler;
-use App\Kanban\Board\Application\Listing\ListBoardsQueryHandler;
+use App\Kanban\Board\Application\Listing\SearchBoardsQueryHandler;
 use App\Kanban\Board\Application\Subscriber\SomethingWithCreatedBoardSubscriber;
 use App\Kanban\Board\Application\Update\UpdateBoardCommandHandler;
 use App\Kanban\Board\Domain\BoardRepository;
@@ -39,7 +39,7 @@ final class BoardServiceProvider extends ServiceProvider
         );
 
         $this->app->tag(
-            ListBoardsQueryHandler::class,
+            SearchBoardsQueryHandler::class,
             'query_handler'
         );
 
