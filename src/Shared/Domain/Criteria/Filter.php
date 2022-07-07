@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\Criteria;
 
-enum OrderType
+final class Filter
 {
-    case Asc;
-    case Desc;
-    case None;
+    public function __construct()
+    {
+    }
 }

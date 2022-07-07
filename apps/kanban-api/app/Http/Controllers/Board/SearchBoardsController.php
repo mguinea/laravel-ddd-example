@@ -17,8 +17,16 @@ final class SearchBoardsController
     {
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     *
+     * example url: v1/kanban/boards?filters=created_at>=2022-01-01&order_by=name&order=desc&limit=5&offset=1
+     *
+     */
     public function __invoke(Request $request): JsonResponse
     {
+        $filters = $request->get('filters');
         $orderBy = $request->get('order_by');
         $order = $request->get('order');
         $limit  = $request->get('limit');
@@ -27,7 +35,7 @@ final class SearchBoardsController
         /** @var BoardsResponse $boardsResponse */
         $boardsResponse = $this->queryBus->ask(
             new SearchBoardsQuery(
-                [],
+                $filters,
                 $orderBy,
                 $order,
                 $limit,
