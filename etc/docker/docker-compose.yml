@@ -42,6 +42,29 @@ services:
       - laravel-ddd-example.dbdata:/var/lib/mysql/
       - ./../../etc/mysql/my.cnf:/etc/mysql/my.cnf
 
+  laravel-ddd-example.prometheus:
+    container_name: laravel-ddd-example.prometheus
+    image: prom/prometheus:v2.36.1
+    volumes:
+      - ./../../etc/prometheus/:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - "9999:9090"
+
+  laravel-ddd-example.grafana:
+    container_name: laravel-ddd-example.grafana
+    image: grafana/grafana:7.5.7
+    ports:
+      - 3001:3000
+    restart: unless-stopped
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - grafana-data:/var/lib/grafana
+
   laravel-ddd-example.kanban-api:
     build:
       context: ./../../
@@ -72,4 +95,6 @@ networks:
 
 volumes:
   laravel-ddd-example.dbdata:
+    driver: local
+  grafana-data:
     driver: local

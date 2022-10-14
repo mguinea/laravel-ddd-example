@@ -1,0 +1,11 @@
+scrape_configs:
+
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:8080']
+
+  - job_name: 'laravel-ddd-example.kanban-api'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['laravel-ddd-example.kanban-api:8080']
