@@ -8,7 +8,6 @@
     <!--<a href="https://nuxtjs.org/"><img src="https://img.shields.io/badge/Nuxt-2-00C58E.svg?style=flat-square&logo=nuxt.js" alt="Nuxt.js"/></a>-->
     <!--<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind-2-38B2AC.svg?style=flat-square&logo=tailwind-css" alt="Tailwind CSS"/></a>-->
     <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-8-777BB4.svg?style=flat-square&logo=php" alt="PHP"/></a>
-    <a href="https://www.jetbrains.com/es-es/phpstorm/?ref=steemhunt"><img src="https://img.shields.io/badge/PhpStorm-2021-000000.svg?style=flat-square&logo=phpstorm" alt="PhpStorm"/></a>
     <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-3-2496ED.svg?style=flat-square&logo=docker" alt="Docker"/></a>
     <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/mysql-5.7-4479A1.svg?style=flat-square&logo=mysql" alt="MySql"/></a>
     <a href="https://circleci.com/gh/mguinea/laravel-ddd-example/tree/master"><img src="https://circleci.com/gh/mguinea/laravel-ddd-example/tree/master.svg?style=svg" alt="CircleCI"/></a>
@@ -32,7 +31,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/mguinea/laravel-ddd-example/actions"><img src="https://github.com/mguinea/laravel-ddd-example/workflows/CI/badge.svg" alt="CI pipeline status" /></a>
+    <a href="https://github.com/mguinea/laravel-ddd-example/actions"><img src="https://github.com/mguinea/laravel-ddd-example/actions/workflows/php.yml/badge.svg" alt="CI pipeline status" /></a>
 </p>
 
 ## Installation
