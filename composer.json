@@ -20,6 +20,7 @@
     "guzzlehttp/guzzle": "^7.0.1",
     "lambdish/phunctional": "^2.1",
     "laravel/framework": "^8.0",
+    "phpspec/prophecy": "^1.15",
     "symfony/messenger": "^5.0"
   },
   "require-dev": {
