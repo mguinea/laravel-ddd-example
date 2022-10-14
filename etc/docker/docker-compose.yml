@@ -33,7 +33,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD-secret}
       SERVICE_NAME: mysql
       SERVICE_TAGS: dev
-    image: mysql:5.7
+    image: mysql:latest
     networks:
       - laravel-ddd-example
     restart: unless-stopped

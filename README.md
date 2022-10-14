@@ -121,7 +121,20 @@ Our repositories try to be as simple as possible usually only containing basic C
 
 Symfony Messenger has been used to implement commands, queries and events.
 
+## DevOps
+
+TBD
+
+Packer, Ansible, Kubernetes, Terraform, Jenkins, AWS
+
+## Monitoring and Observability
+
+TBD
+
+ELK (Logging), Prometheus + Grafana + Zabbix (Monitoring)
+
 ## References
 
 - [Bash best practices](https://gist.github.com/leolorenzoluis/0aad69719267536d0b7a79946edbfcb7)
 - [DDD Concepts](https://www.isaqb.org/blog/ddd-confusion-bounded-subdomain-context-module-or-what/)
+- [Ansible best practices](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#content-organization)
