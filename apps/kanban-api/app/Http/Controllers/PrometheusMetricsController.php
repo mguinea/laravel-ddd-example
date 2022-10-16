@@ -17,6 +17,7 @@ final class PrometheusMetricsController
     public function __invoke(): Response
     {
         $renderer = new RenderTextFormat();
+
         $result = $renderer->render($this->monitor->registry()->getMetricFamilySamples());
 
         return new Response($result, 200, ['Content-Type' => RenderTextFormat::MIME_TYPE]);
