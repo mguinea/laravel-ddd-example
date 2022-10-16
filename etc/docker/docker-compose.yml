@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
 
@@ -14,7 +14,7 @@ services:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
     networks:
-      - laravel-ddd-example
+      - laravel-ddd-example.network
     restart: unless-stopped
     tty: true
     volumes:
@@ -35,7 +35,7 @@ services:
       SERVICE_TAGS: dev
     image: mysql:latest
     networks:
-      - laravel-ddd-example
+      - laravel-ddd-example.network
     restart: unless-stopped
     tty: true
     volumes:
@@ -47,23 +47,30 @@ services:
     image: prom/prometheus:v2.36.1
     volumes:
       - ./../../etc/prometheus/:/etc/prometheus/
+      - laravel-ddd-example.prometeus:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/usr/share/prometheus/console_libraries'
       - '--web.console.templates=/usr/share/prometheus/consoles'
+    networks:
+      - laravel-ddd-example.network
+    extra_hosts:
+      - "host.docker.internal: host-gateway"
     ports:
-      - "9999:9090"
+      - 9999:9090
 
   laravel-ddd-example.grafana:
     container_name: laravel-ddd-example.grafana
     image: grafana/grafana:7.5.7
+    networks:
+      - laravel-ddd-example.network
     ports:
       - 3001:3000
     restart: unless-stopped
     volumes:
-      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-      - grafana-data:/var/lib/grafana
+      - ./../../etc/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - laravel-ddd-example.grafana:/var/lib/grafana
 
   laravel-ddd-example.kanban-api:
     build:
@@ -73,13 +80,14 @@ services:
     container_name: laravel-ddd-example.kanban-api
     depends_on:
       - laravel-ddd-example.db
+      - laravel-ddd-example.prometheus
     env_file:
       - ./../../.env
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
     networks:
-      - laravel-ddd-example
+      - laravel-ddd-example.network
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -90,11 +98,17 @@ services:
     working_dir: /var/www
 
 networks:
-  laravel-ddd-example:
+  laravel-ddd-example.network:
+    name: laravel-ddd-example.network
     driver: bridge
 
 volumes:
   laravel-ddd-example.dbdata:
+    name: laravel-ddd-example.dbdata
     driver: local
-  grafana-data:
+  laravel-ddd-example.prometeus:
+    name: laravel-ddd-example.prometeus
+    driver: local
+  laravel-ddd-example.grafana:
+    name: laravel-ddd-example.grafana
     driver: local

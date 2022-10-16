@@ -6,9 +6,14 @@ use Apps\KanbanApi\Http\Controllers\Board\GetBoardByIdController;
 use Apps\KanbanApi\Http\Controllers\Board\SearchBoardsController;
 use Apps\KanbanApi\Http\Controllers\Board\UpdateBoardController;
 use Apps\KanbanApi\Http\Controllers\HealthCheck\HealthCheckController;
+use Apps\KanbanApi\Http\Controllers\PrometheusMetricsController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['api'])->prefix('v1/kanban')->group(function() {
+Route::middleware(['api'])->group(function() {
+    Route::get('metrics', PrometheusMetricsController::class);
+});
+
+Route::middleware(['api'])->prefix('api/v1/kanban')->group(function() {
     Route::get('health-check', HealthCheckController::class);
 
     Route::prefix('boards')->group(function() {

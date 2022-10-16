@@ -21,6 +21,7 @@
     "lambdish/phunctional": "^2.1",
     "laravel/framework": "^8.0",
     "phpspec/prophecy": "^1.15",
+    "promphp/prometheus_client_php": "^2.6",
     "symfony/messenger": "^5.0"
   },
   "require-dev": {
