@@ -2,11 +2,11 @@
 
 namespace Apps\KanbanApi\Providers;
 
-use App\Shared\Domain\Bus\Command\CommandBus;
-use App\Shared\Domain\Bus\Event\DomainEventSubscriber;
-use App\Shared\Domain\Bus\Event\EventBus;
-use App\Shared\Domain\Bus\Query\QueryBus;
-use App\Shared\Domain\UuidGenerator;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
+use App\Shared\Domain\Bus\Event\DomainEventSubscriberInterface;
+use App\Shared\Domain\Bus\Event\EventBusInterface;
+use App\Shared\Domain\Bus\Query\QueryBusInterface;
+use App\Shared\Domain\UuidGeneratorInterface;
 use App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus;
 use App\Shared\Infrastructure\Bus\Messenger\MessengerEventBus;
 use App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus;
@@ -23,28 +23,28 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            EventBus::class,
+            EventBusInterface::class,
             function ($app) {
                 return new MessengerEventBus($app->tagged('domain_event_subscriber'));
             }
         );
 
         $this->app->bind(
-            QueryBus::class,
+            QueryBusInterface::class,
             function ($app) {
                 return new MessengerQueryBus($app->tagged('query_handler'));
             }
         );
 
         $this->app->bind(
-            CommandBus::class,
+            CommandBusInterface::class,
             function ($app) {
                 return new MessengerCommandBus($app->tagged('command_handler'));
             }
         );
 
         $this->app->bind(
-            UuidGenerator::class,
+            UuidGeneratorInterface::class,
             RamseyUuidGenerator::class
         );
     }

@@ -6,9 +6,9 @@ namespace App\Kanban\Board\Application;
 
 use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\Boards;
-use App\Shared\Domain\Bus\Query\Response;
+use App\Shared\Domain\Bus\Query\ResponseInterface;
 
-final class BoardsResponse implements Response
+final class BoardsResponse implements ResponseInterface
 {
     /**
      * @param array<BoardResponse> $boards

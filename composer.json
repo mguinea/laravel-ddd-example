@@ -2,26 +2,18 @@
   "name": "mguinea/laravel-ddd-example",
   "type": "project",
   "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Laravel Monorepository",
-  "keywords": [
-    "ddd",
-    "laravel",
-    "cqrs",
-    "solid",
-    "best-practices"
-  ],
+  "keywords": ["ddd", "laravel", "cqrs", "solid", "best-practices", "hexagonal"],
   "license": "MIT",
   "require": {
     "php": "^8.1",
     "ext-json": "*",
     "ext-pdo": "*",
-    "aws/aws-sdk-php": "^3.211",
     "fideloper/proxy": "^4.4",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
-    "lambdish/phunctional": "^2.1",
     "laravel/framework": "^8.0",
     "phpspec/prophecy": "^1.15",
-    "promphp/prometheus_client_php": "^2.6",
+    "mguinea/php-criteria": "dev-main",
     "symfony/messenger": "^5.0"
   },
   "require-dev": {
@@ -50,14 +42,5 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
-  "scripts": {
-    "bash": "scripts/bash.sh",
-    "build": "scripts/build.sh",
-    "coverage": "scripts/coverage.sh",
-    "destroy": "scripts/destroy.sh",
-    "migrate": "scripts/migrate.sh",
-    "tests": "scripts/tests.sh",
-    "up": "scripts/up.sh"
-  }
+  "prefer-stable": true
 }

@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.332.4
+Plugin-Dependencies: configuration-as-code:1512.vb_79d418d5fc8;resolut
+ ion:=optional,workflow-scm-step:400.v6b_89a_1317c9a_,workflow-step-ap
+ i:639.v6eca_cd8c04a_a_,credentials-binding:523.vd859a_4b_122e6,creden
+ tials:1087.1089.v2f1b_9a_b_040e4,git-client:3.11.0,mailer:435.v79ef39
+ 72b_5c7,matrix-project:772.v494f19991984;resolution:=optional,paramet
+ erized-trigger:2.39;resolution:=optional,promoted-builds:3.10.1;resol
+ ution:=optional,scm-api:621.vda_a_b_055e58f7,script-security:1175.v4b
+ _d517d6db_f0,ssh-credentials:277.280.v1e86b_7d0056b_,structs:324.va_f
+ 5d6774f3a_d,token-macro:308.v4f2b_ed62b_b_16;resolution:=optional
+Implementation-Title: Git plugin
+Long-Name: Git plugin
+Implementation-Version: 4.12.1
+Group-Id: org.jenkins-ci.plugins
+Plugin-License-Name: The MIT License (MIT)
+Specification-Title: Git plugin
+Plugin-ScmUrl: https://github.com/jenkinsci/git-plugin
+Plugin-Version: 4.12.1
+Jenkins-Version: 2.332.4
+Url: https://github.com/jenkinsci/git-plugin/blob/master/README.adoc
+Short-Name: git
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: Mark Waite:markewaite:mark.earl.waite@gmail.com,Rob
+ ert Sandell:rsandell:rsandell@cloudbees.com,M Ramon Leon:mramonleon:r
+ leon@cloudbees.com,Olivier Lamy:olamy:olamy@apache.org
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.6.0
+Specification-Version: 4.12
+

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Application\Listing;
 
-use App\Shared\Domain\Bus\Query\Query;
+use App\Shared\Domain\Bus\Query\QueryInterface;
 
-final class SearchBoardsQuery implements Query
+final class SearchBoardsQuery implements QueryInterface
 {
     public function __construct(
         private ?array $filters,

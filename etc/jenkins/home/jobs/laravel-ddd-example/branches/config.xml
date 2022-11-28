@@ -1,0 +1,35 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1249.v7d974144cc14">
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.jenkinsci.plugins.workflow.multibranch.BranchJobProperty plugin="workflow-multibranch@716.vc692a_e52371b_">
+      <branch plugin="branch-api@2.1046.v0ca_37783ecc5">
+        <sourceId>e85a5767-8fb5-430b-b1b5-8e849994d540</sourceId>
+        <head plugin="scm-api@621.vda_a_b_055e58f7">
+          <name></name>
+        </head>
+        <scm class="hudson.plugins.git.GitSCM" plugin="git@4.12.1">
+          <configVersion>2</configVersion>
+          <userRemoteConfigs>
+            <hudson.plugins.git.UserRemoteConfig/>
+          </userRemoteConfigs>
+          <branches>
+            <hudson.plugins.git.BranchSpec>
+              <name>*/master</name>
+            </hudson.plugins.git.BranchSpec>
+          </branches>
+          <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+          <submoduleCfg class="empty-list"/>
+          <extensions/>
+        </scm>
+        <properties/>
+        <actions/>
+      </branch>
+    </org.jenkinsci.plugins.workflow.multibranch.BranchJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.multibranch.SCMBinder" plugin="workflow-multibranch@716.vc692a_e52371b_">
+    <scriptPath>Jenkinsfile</scriptPath>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

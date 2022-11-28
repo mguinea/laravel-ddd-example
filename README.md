@@ -3,20 +3,18 @@
 </h1>
 
 <p align="center">
-    <a href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-8-FF2D20.svg?style=flat-square&logo=laravel" alt="Laravel 8"/></a>
-    <!--<a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-2-4FC08D.svg?style=flat-square&logo=vue.js" alt="Vue.js"/></a>-->
-    <!--<a href="https://nuxtjs.org/"><img src="https://img.shields.io/badge/Nuxt-2-00C58E.svg?style=flat-square&logo=nuxt.js" alt="Nuxt.js"/></a>-->
-    <!--<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind-2-38B2AC.svg?style=flat-square&logo=tailwind-css" alt="Tailwind CSS"/></a>-->
-    <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-8-777BB4.svg?style=flat-square&logo=php" alt="PHP"/></a>
-    <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-3-2496ED.svg?style=flat-square&logo=docker" alt="Docker"/></a>
-    <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/mysql-5.7-4479A1.svg?style=flat-square&logo=mysql" alt="MySql"/></a>
+    <a href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-8-FF2D20.svg?style=for-the-badge&logo=laravel" alt="Laravel 8"/></a>
+    <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-8-777BB4.svg?style=for-the-badge&logo=php" alt="PHP"/></a>
+    <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-3-2496ED.svg?style=for-the-badge&logo=docker" alt="Docker"/></a>
+    <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/mysql-5.7-4479A1.svg?style=for-the-badge&logo=mysql" alt="MySql"/></a>
+    <a href="https://www.terraform.io/"><img src="https://img.shields.io/badge/terraform-1.3-7B42BC.svg?style=for-the-badge&logo=terraform" alt="Terraform"/></a>
     <a href="https://circleci.com/gh/mguinea/laravel-ddd-example/tree/master"><img src="https://circleci.com/gh/mguinea/laravel-ddd-example/tree/master.svg?style=svg" alt="CircleCI"/></a>
     <a href="https://github.com/mguinea/laravel-ddd-example/actions"><img src="https://github.com/mguinea/laravel-ddd-example/actions/workflows/php.yml/badge.svg" alt="GithubActions"/></a>
 </p>
 
 <p align="center">
   This is a monorepo containing a <strong>PHP application using Domain-Driven Design (DDD) and Command Query Responsibility Segregation
-  (CQRS) principles</strong>. It also has a front in <strong>Vue.js and Nuxt.js</strong> (TBD).
+  (CQRS) principles</strong>.
   <br />
   <br />
   It's a basic implementation of a Kanban manager (at this moment, just only manages Board entity; not columns or tasks)
@@ -57,10 +55,9 @@ and run containers:
 `composer up`
 
     
-Then you'll have 2 apps available (1 API and 1 Frontend):
+Then you'll have 1 app available (an API):
 
 1. Kanban API: http://localhost:8080/api/v1/kanban/health-check
-2. Kanban Frontend: TBD
 
 ### Tests
 
@@ -94,7 +91,7 @@ This repository follows the Hexagonal Architecture pattern. Also, it's structure
 
 *Kanban bounded context* containing *Board module* and *Shared bonded context*.
 
-```scala
+```
 $ tree -L 3 src
 
 src
@@ -121,20 +118,10 @@ Our repositories try to be as simple as possible usually only containing basic C
 
 Symfony Messenger has been used to implement commands, queries and events.
 
-## DevOps
-
-TBD
-
-Packer, Ansible, Kubernetes, Terraform, Jenkins, AWS
-
-## Monitoring and Observability
-
-TBD
-
-ELK (Logging), Prometheus + Grafana + Zabbix (Monitoring)
-
 ## References
 
 - [Bash best practices](https://gist.github.com/leolorenzoluis/0aad69719267536d0b7a79946edbfcb7)
 - [DDD Concepts](https://www.isaqb.org/blog/ddd-confusion-bounded-subdomain-context-module-or-what/)
 - [Ansible best practices](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#content-organization)
+- [Terraform first steps](https://www.adictosaltrabajo.com/2020/06/19/primeros-pasos-con-terraform-crear-instancia-ec2-en-aws/)
+- [Jenkins in Docker](https://appinventiv.com/blog/jenkins-installation-using-docker-compose/)

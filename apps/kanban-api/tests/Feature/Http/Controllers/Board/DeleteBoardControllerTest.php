@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Apps\KanbanApi\Tests\Feature\Http\Controllers\Board;
 
-use App\Kanban\Board\Infrastructure\Persistence\Eloquent\BoardModel;
+use App\Kanban\Board\Infrastructure\Eloquent\BoardModel;
 use Apps\KanbanApi\Tests\TestCase;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;

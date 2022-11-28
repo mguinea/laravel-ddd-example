@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Shared\Infrastructure\Bus\Messenger;
 
 use App\Shared\Domain\Bus\Event\DomainEvent;
-use App\Shared\Domain\Bus\Event\EventBus;
+use App\Shared\Domain\Bus\Event\EventBusInterface;
 use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
@@ -13,7 +13,7 @@ use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
-final class MessengerEventBus implements EventBus
+final class MessengerEventBus implements EventBusInterface
 {
     private MessageBus $bus;
 

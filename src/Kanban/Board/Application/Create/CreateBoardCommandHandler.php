@@ -4,34 +4,21 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Application\Create;
 
-use App\Kanban\Board\Domain\Board;
-use App\Kanban\Board\Domain\BoardAlreadyExists;
+use App\Kanban\Board\Domain\BoardCreator;
 use App\Kanban\Board\Domain\BoardId;
 use App\Kanban\Board\Domain\BoardName;
-use App\Kanban\Board\Domain\BoardRepository;
-use App\Shared\Domain\Bus\Command\CommandHandler;
-use App\Shared\Domain\Bus\Event\EventBus;
+use App\Shared\Domain\Bus\Command\CommandHandlerInterface;
 
-final class CreateBoardCommandHandler implements CommandHandler
+final class CreateBoardCommandHandler implements CommandHandlerInterface
 {
-    public function __construct(
-        private BoardRepository $repository,
-        private EventBus $eventBus
-    ) {
+    public function __construct(private BoardCreator $creator) {
     }
 
     public function __invoke(CreateBoardCommand $command): void
     {
-        $id = BoardId::fromValue($command->id());
-        $board = $this->repository->find($id);
+        $id = BoardId::fromValue($command->id);
+        $name = BoardName::fromValue($command->name);
 
-        if (null !== $board) {
-            throw new BoardAlreadyExists();
-        }
-
-        $name = BoardName::fromValue($command->name());
-        $board = Board::create($id, $name);
-        $this->repository->save($board);
-        $this->eventBus->publish(...$board->pullDomainEvents());
+        $this->creator->__invoke($id, $name);
     }
 }

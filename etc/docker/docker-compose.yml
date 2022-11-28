@@ -7,7 +7,7 @@ services:
     build:
       context: ./../../
       dockerfile: ./etc/docker/php.Dockerfile
-    container_name: laravel-ddd-example.app
+    container_name: app
     env_file:
       - ./../../.env
     environment:
@@ -23,7 +23,7 @@ services:
     working_dir: /var/www
 
   laravel-ddd-example.db:
-    container_name: laravel-ddd-example.db
+    container_name: db
     env_file:
       - ./../../.env
     environment:
@@ -43,7 +43,7 @@ services:
       - ./../../etc/mysql/my.cnf:/etc/mysql/my.cnf
 
   laravel-ddd-example.prometheus:
-    container_name: laravel-ddd-example.prometheus
+    container_name: prometheus
     image: prom/prometheus:v2.36.1
     volumes:
       - ./../../etc/prometheus/:/etc/prometheus/
@@ -55,13 +55,13 @@ services:
       - '--web.console.templates=/usr/share/prometheus/consoles'
     networks:
       - laravel-ddd-example.network
-    extra_hosts:
-      - "host.docker.internal: host-gateway"
+    # extra_hosts:
+    # - "host.docker.internal: host-gateway"
     ports:
       - 9999:9090
 
   laravel-ddd-example.grafana:
-    container_name: laravel-ddd-example.grafana
+    container_name: grafana
     image: grafana/grafana:7.5.7
     networks:
       - laravel-ddd-example.network
@@ -77,7 +77,7 @@ services:
       context: ./../../
       dockerfile: ./etc/docker/php.Dockerfile
     command: php -S laravel-ddd-example.kanban-api:8080 -t ./apps/kanban-api/public
-    container_name: laravel-ddd-example.kanban-api
+    container_name: kanban-api
     depends_on:
       - laravel-ddd-example.db
       - laravel-ddd-example.prometheus
@@ -96,6 +96,19 @@ services:
       - ./../../:/var/www
       - ./../../etc/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     working_dir: /var/www
+
+  laravel-ddd-example.jenkins:
+    image: jenkins/jenkins:lts
+    restart: unless-stopped
+    privileged: true
+    user: root
+    ports:
+      - 8099:8080
+    container_name: jenkins
+    volumes:
+      - ./../../etc/jenkins/home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
 
 networks:
   laravel-ddd-example.network:

@@ -1,0 +1,109 @@
+
+The following files have been resolved:
+   org.jenkins-ci.main:cli:jar:2.361.2:compile -- module cli (auto)
+   org.jenkins-ci.main:remoting:jar:3044.vb_940a_a_e4f72e:compile -- module remoting (auto)
+   org.jenkins-ci.main:jenkins-core:jar:2.361.2:compile -- module jenkins.core (auto)
+   antlr:antlr:jar:2.7.7:compile -- module antlr (auto)
+   args4j:args4j:jar:2.33:compile -- module args4j (auto)
+   com.github.spotbugs:spotbugs-annotations:jar:4.7.1:compile -- module com.github.spotbugs.annotations [auto]
+   com.google.guava:guava:jar:31.1-jre:compile -- module com.google.common [auto]
+   com.google.guava:failureaccess:jar:1.0.1:compile -- module failureaccess (auto)
+   com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile -- module listenablefuture (auto)
+   com.google.inject:guice:jar:5.0.1:compile -- module com.google.guice [auto]
+   javax.inject:javax.inject:jar:1:compile -- module javax.inject (auto)
+   com.infradna.tool:bridge-method-annotation:jar:1.23:compile -- module bridge.method.annotation (auto)
+   com.jcraft:jzlib:jar:1.1.3-kohsuke-1:compile -- module jzlib (auto)
+   com.sun.solaris:embedded_su4j:jar:1.1:compile -- module embedded.su4j (auto)
+   com.sun.xml.txw2:txw2:jar:20110809:compile -- module txw2 (auto)
+   relaxngDatatype:relaxngDatatype:jar:20020414:compile -- module relaxngDatatype (auto)
+   com.thoughtworks.xstream:xstream:jar:1.4.19:compile -- module xstream (auto)
+   io.github.x-stream:mxparser:jar:1.2.2:compile -- module io.github.xstream.mxparser [auto]
+   commons-beanutils:commons-beanutils:jar:1.9.4:compile -- module commons.beanutils (auto)
+   commons-logging:commons-logging:jar:1.2:provided -- module commons.logging (auto)
+   commons-codec:commons-codec:jar:1.15:compile -- module org.apache.commons.codec [auto]
+   commons-collections:commons-collections:jar:3.2.2:compile -- module commons.collections (auto)
+   commons-fileupload:commons-fileupload:jar:1.4:compile -- module commons.fileupload (auto)
+   commons-httpclient:commons-httpclient:jar:3.1-jenkins-3:compile -- module commons.httpclient (auto)
+   commons-io:commons-io:jar:2.11.0:compile -- module org.apache.commons.io [auto]
+   commons-jelly:commons-jelly-tags-fmt:jar:1.0:compile -- module commons.jelly.tags.fmt (auto)
+   commons-jelly:commons-jelly-tags-xml:jar:1.1:compile -- module commons.jelly.tags.xml (auto)
+   commons-lang:commons-lang:jar:2.6:compile -- module commons.lang (auto)
+   io.jenkins.stapler:jenkins-stapler-support:jar:1.1:compile -- module jenkins.stapler.support (auto)
+   jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:jar:1.2.7:compile -- module jakarta.servlet.jsp.jstl.api (auto)
+   jaxen:jaxen:jar:1.2.0:compile -- module jaxen (auto)
+   jline:jline:jar:2.14.6:compile -- module jline (auto)
+   net.java.dev.jna:jna:jar:5.12.1:compile -- module com.sun.jna [auto]
+   net.java.sezpoz:sezpoz:jar:1.13:compile -- module sezpoz (auto)
+   net.jcip:jcip-annotations:jar:1.0:compile -- module jcip.annotations (auto)
+   net.sf.kxml:kxml2:jar:2.3.0:compile
+   org.apache.ant:ant:jar:1.10.12:compile -- module ant (auto)
+   org.apache.ant:ant-launcher:jar:1.10.12:compile -- module ant.launcher (auto)
+   org.apache.commons:commons-compress:jar:1.21:compile -- module org.apache.commons.compress [auto]
+   org.codehaus.groovy:groovy-all:jar:2.4.21:compile
+   org.connectbot.jbcrypt:jbcrypt:jar:1.0.0:compile -- module jbcrypt (auto)
+   org.fusesource.jansi:jansi:jar:1.11:compile -- module jansi (auto)
+   org.jenkins-ci:annotation-indexer:jar:1.16:compile -- module annotation.indexer (auto)
+   org.jenkins-ci:commons-jexl:jar:1.1-jenkins-20111212:compile -- module commons.jexl (auto)
+   org.jenkins-ci:crypto-util:jar:1.7:compile -- module crypto.util (auto)
+   org.jenkins-ci:memory-monitor:jar:1.11:compile -- module memory.monitor (auto)
+   org.jenkins-ci:symbol-annotation:jar:1.23:compile -- module symbol.annotation (auto)
+   org.jenkins-ci:task-reactor:jar:1.7:compile -- module task.reactor (auto)
+   org.jenkins-ci:version-number:jar:1.10:compile -- module version.number (auto)
+   org.jenkins-ci.main:websocket-spi:jar:2.361.2:compile -- module websocket.spi (auto)
+   org.jfree:jfreechart:jar:1.0.19:compile -- module jfreechart (auto)
+   org.jfree:jcommon:jar:1.0.23:compile -- module jcommon (auto)
+   org.jvnet.hudson:commons-jelly-tags-define:jar:1.0.1-hudson-20071021:compile -- module commons.jelly.tags.define (auto)
+   org.jvnet.localizer:localizer:jar:1.31:compile -- module localizer (auto)
+   org.jvnet.robust-http-client:robust-http-client:jar:1.2:compile -- module robust.http.client (auto)
+   org.jvnet.winp:winp:jar:1.28:compile -- module winp (auto)
+   org.kohsuke:access-modifier-annotation:jar:1.27:compile -- module access.modifier.annotation (auto)
+   org.kohsuke:windows-package-checker:jar:1.2:compile
+   org.kohsuke.jinterop:j-interop:jar:2.0.8-kohsuke-1:compile -- module j.interop (auto)
+   org.kohsuke.jinterop:j-interopdeps:jar:2.0.8-kohsuke-1:compile -- module j.interopdeps (auto)
+   org.samba.jcifs:jcifs:jar:1.3.18-kohsuke-1:compile -- module jcifs (auto)
+   org.kohsuke.stapler:json-lib:jar:2.4-jenkins-3:compile -- module json.lib (auto)
+   net.sf.ezmorph:ezmorph:jar:1.0.6:compile -- module ezmorph (auto)
+   org.kohsuke.stapler:stapler:jar:1711.1713.vc400cfb_5597a_:compile -- module stapler (auto)
+   commons-discovery:commons-discovery:jar:0.5:compile -- module commons.discovery (auto)
+   jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile -- module jakarta.annotation
+   javax.annotation:javax.annotation-api:jar:1.3.2:compile -- module java.annotation [auto]
+   org.jvnet:tiger-types:jar:2.2:compile -- module tiger.types (auto)
+   org.kohsuke.stapler:stapler-adjunct-codemirror:jar:1.3:compile -- module stapler.adjunct.codemirror (auto)
+   org.kohsuke.stapler:stapler-adjunct-timeline:jar:1.5:compile -- module stapler.adjunct.timeline (auto)
+   org.kohsuke.stapler:stapler-groovy:jar:1711.1713.vc400cfb_5597a_:compile -- module stapler.groovy (auto)
+   org.kohsuke.stapler:stapler-jelly:jar:1711.1713.vc400cfb_5597a_:compile -- module stapler.jelly (auto)
+   org.dom4j:dom4j:jar:2.1.3:compile -- module dom4j (auto)
+   org.jenkins-ci:commons-jelly:jar:1.1-jenkins-20220630:compile -- module commons.jelly (auto)
+   org.ow2.asm:asm:jar:9.3:compile -- module org.objectweb.asm
+   org.ow2.asm:asm-analysis:jar:9.3:compile -- module org.objectweb.asm.tree.analysis
+   org.ow2.asm:asm-commons:jar:9.3:compile -- module org.objectweb.asm.commons
+   org.ow2.asm:asm-tree:jar:9.3:compile -- module org.objectweb.asm.tree
+   org.ow2.asm:asm-util:jar:9.3:compile -- module org.objectweb.asm.util
+   org.slf4j:jcl-over-slf4j:jar:1.7.36:compile -- module org.apache.commons.logging [auto]
+   org.slf4j:log4j-over-slf4j:jar:1.7.36:compile -- module org.apache.log4j [auto]
+   org.springframework.security:spring-security-web:jar:5.7.2:compile -- module spring.security.web [auto]
+   org.springframework.security:spring-security-core:jar:5.7.2:compile -- module spring.security.core [auto]
+   org.springframework.security:spring-security-crypto:jar:5.7.2:compile -- module spring.security.crypto [auto]
+   org.springframework:spring-core:jar:5.3.22:compile -- module spring.core [auto]
+   org.springframework:spring-aop:jar:5.3.22:compile -- module spring.aop [auto]
+   org.springframework:spring-beans:jar:5.3.22:compile -- module spring.beans [auto]
+   org.springframework:spring-context:jar:5.3.22:compile -- module spring.context [auto]
+   org.springframework:spring-expression:jar:5.3.22:compile -- module spring.expression [auto]
+   org.springframework:spring-web:jar:5.3.22:compile -- module spring.web [auto]
+   xpp3:xpp3:jar:1.1.4c:compile -- module xpp3 (auto)
+   org.jenkins-ci.main:websocket-jetty10:jar:2.361.2:compile -- module websocket.jetty10 (auto)
+   org.kohsuke.metainf-services:metainf-services:jar:1.9:compile -- module org.kohsuke.metainf_services [auto]
+   org.jenkins-ci.main:websocket-jetty9:jar:2.361.2:compile -- module websocket.jetty9 (auto)
+   org.slf4j:slf4j-jdk14:jar:1.7.36:compile -- module org.slf4j.jul [auto]
+   org.slf4j:slf4j-api:jar:1.7.36:compile -- module org.slf4j [auto]
+   org.jenkins-ci:winstone:jar:6.1:test -- module winstone (auto)
+   org.junit.jupiter:junit-jupiter:jar:5.8.2:test -- module org.junit.jupiter
+   org.junit.jupiter:junit-jupiter-api:jar:5.8.2:test -- module org.junit.jupiter.api
+   org.opentest4j:opentest4j:jar:1.2.0:test -- module org.opentest4j
+   org.junit.platform:junit-platform-commons:jar:1.8.2:test -- module org.junit.platform.commons
+   org.apiguardian:apiguardian-api:jar:1.1.2:test -- module org.apiguardian.api
+   org.junit.jupiter:junit-jupiter-params:jar:5.8.2:test -- module org.junit.jupiter.params
+   org.junit.jupiter:junit-jupiter-engine:jar:5.8.2:test -- module org.junit.jupiter.engine
+   org.junit.platform:junit-platform-engine:jar:1.8.2:test -- module org.junit.platform.engine
+   javax.servlet:servlet-api:jar:0:provided -- module servlet.api (auto)
+

@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.346.1
+Plugin-Dependencies: workflow-api:1192.v2d0deb_19d212,workflow-cps:280
+ 3.v1a_f77ffcc773,workflow-multibranch:716.vc692a_e52371b_;resolution:
+ =optional,workflow-scm-step:400.v6b_89a_1317c9a_,workflow-step-api:63
+ 9.v6eca_cd8c04a_a_,branch-api:2.1046.v0ca_37783ecc5;resolution:=optio
+ nal,cloudbees-folder:6.740.ve4f4ffa_dea_54,scm-api:621.vda_a_b_055e58
+ f7,script-security:1184.v85d16b_d851b_3,structs:324.va_f5d6774f3a_d,v
+ ariant:59.vf075fe829ccb
+Implementation-Title: Pipeline: Groovy Libraries
+Long-Name: Pipeline: Groovy Libraries
+Implementation-Version: 613.v9c41a_160233f
+Group-Id: io.jenkins.plugins
+Plugin-License-Name: MIT License
+Specification-Title: Pipeline: Groovy Libraries
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-groovy-lib-plugin
+Plugin-Version: 613.v9c41a_160233f
+Jenkins-Version: 2.346.1
+Url: https://github.com/jenkinsci/pipeline-groovy-lib-plugin
+Short-Name: pipeline-groovy-lib
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: 
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.6.0
+Specification-Version: 0.0
+

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Apps\KanbanApi\Http\Controllers\Board;
 
 use App\Kanban\Board\Application\Create\CreateBoardCommand;
-use App\Shared\Domain\Bus\Command\CommandBus;
-use App\Shared\Domain\UuidGenerator;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
+use App\Shared\Domain\UuidGeneratorInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,8 +14,8 @@ use Illuminate\Http\Response;
 final class CreateBoardController
 {
     public function __construct(
-        private CommandBus $commandBus,
-        private UuidGenerator $uuidGenerator
+        private CommandBusInterface $commandBus,
+        private UuidGeneratorInterface $uuidGenerator
     ) {
     }
 

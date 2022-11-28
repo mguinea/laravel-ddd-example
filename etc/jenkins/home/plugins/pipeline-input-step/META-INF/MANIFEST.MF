@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.289.1
+Plugin-Dependencies: workflow-api:1143.v2d42f1e9dea_5,workflow-step-ap
+ i:622.vb_8e7c15b_c95a_,workflow-support:813.vb_d7c3d2984a_0,credentia
+ ls:2.6.1,structs:308.v852b473a2b8c
+Implementation-Title: Pipeline: Input Step
+Long-Name: Pipeline: Input Step
+Implementation-Version: 456.vd8a_957db_5b_e9
+Group-Id: org.jenkins-ci.plugins
+Plugin-License-Name: MIT License
+Specification-Title: Pipeline: Input Step
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-input-step-plugin
+Plugin-Version: 456.vd8a_957db_5b_e9
+Jenkins-Version: 2.289.1
+Url: https://github.com/jenkinsci/pipeline-input-step-plugin
+Short-Name: pipeline-input-step
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: 
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.6.0
+Specification-Version: 0.0
+

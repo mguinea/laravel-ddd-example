@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Tests\Shared\Infrastructure\PhpUnit;
 
-use App\Shared\Domain\Bus\Command\Command;
-use App\Shared\Domain\Bus\Command\CommandBus;
+use App\Shared\Domain\Bus\Command\CommandInterface;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
 use App\Shared\Domain\Bus\Event\DomainEvent;
-use App\Shared\Domain\Bus\Event\EventBus;
-use App\Shared\Domain\Bus\Query\Query;
-use App\Shared\Domain\Bus\Query\QueryBus;
-use App\Shared\Domain\Bus\Query\Response;
+use App\Shared\Domain\Bus\Event\EventBusInterface;
+use App\Shared\Domain\Bus\Query\QueryInterface;
+use App\Shared\Domain\Bus\Query\QueryBusInterface;
+use App\Shared\Domain\Bus\Query\ResponseInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophet;
@@ -19,11 +19,11 @@ abstract class UnitTestCase extends TestCase
 {
     protected Prophet $prophet;
     private $queryBusProphecy;
-    private QueryBus $queryBus;
+    private QueryBusInterface $queryBus;
     private $commandBusProphecy;
-    private CommandBus $commandBus;
+    private CommandBusInterface $commandBus;
     private $eventBusProphecy;
-    private EventBus $eventBus;
+    private EventBusInterface $eventBus;
 
     protected function setUp(): void
     {
@@ -45,26 +45,26 @@ abstract class UnitTestCase extends TestCase
         $subscriber($event);
     }
 
-    protected function dispatch(Command $command, callable $commandHandler): void
+    protected function dispatch(CommandInterface $command, callable $commandHandler): void
     {
         $commandHandler($command);
     }
 
-    protected function assertAskResponse(Response $expected, Query $query, callable $queryHandler): void
+    protected function assertAskResponse(ResponseInterface $expected, QueryInterface $query, callable $queryHandler): void
     {
         $actual = $queryHandler($query);
 
         $this->assertEquals($expected, $actual);
     }
 
-    protected function assertAskThrowsException(string $expectedErrorClass, Query $query, callable $queryHandler): void
+    protected function assertAskThrowsException(string $expectedErrorClass, QueryInterface $query, callable $queryHandler): void
     {
         $this->expectException($expectedErrorClass);
 
         $queryHandler($query);
     }
 
-    protected function assertAskNullResponse(Query $query, callable $queryHandler): void
+    protected function assertAskNullResponse(QueryInterface $query, callable $queryHandler): void
     {
         $actual = $queryHandler($query);
 
@@ -77,7 +77,7 @@ abstract class UnitTestCase extends TestCase
     }
 
     /**
-     * @return object|QueryBus
+     * @return object|QueryBusInterface
      */
     protected function queryBus()
     {
@@ -86,11 +86,11 @@ abstract class UnitTestCase extends TestCase
 
     protected function queryBusProphecy(): ObjectProphecy
     {
-        return $this->queryBusProphecy = $this->queryBusProphecy ?? $this->prophecy(QueryBus::class);
+        return $this->queryBusProphecy = $this->queryBusProphecy ?? $this->prophecy(QueryBusInterface::class);
     }
 
     /**
-     * @return object|CommandBus
+     * @return object|CommandBusInterface
      */
     protected function commandBus()
     {
@@ -99,11 +99,11 @@ abstract class UnitTestCase extends TestCase
 
     protected function commandBusProphecy(): ObjectProphecy
     {
-        return $this->commandBusProphecy = $this->commandBusProphecy ?? $this->prophecy(CommandBus::class);
+        return $this->commandBusProphecy = $this->commandBusProphecy ?? $this->prophecy(CommandBusInterface::class);
     }
 
     /**
-     * @return object|EventBus
+     * @return object|EventBusInterface
      */
     protected function eventBus()
     {
@@ -112,6 +112,6 @@ abstract class UnitTestCase extends TestCase
 
     protected function eventBusProphecy(): ObjectProphecy
     {
-        return $this->eventBusProphecy = $this->eventBusProphecy ?? $this->prophecy(EventBus::class);
+        return $this->eventBusProphecy = $this->eventBusProphecy ?? $this->prophecy(EventBusInterface::class);
     }
 }

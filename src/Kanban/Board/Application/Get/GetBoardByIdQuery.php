@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Application\Get;
 
-use App\Shared\Domain\Bus\Query\Query;
+use App\Shared\Domain\Bus\Query\QueryInterface;
 
-final class GetBoardByIdQuery implements Query
+final class GetBoardByIdQuery implements QueryInterface
 {
-    public function __construct(private string $id)
+    public function __construct(public readonly string $id)
     {
-    }
-
-    public function id(): string
-    {
-        return $this->id;
     }
 }

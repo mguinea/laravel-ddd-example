@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='resource-disposer' version='0.20'><l:dependency name='Resource Disposer Plugin' groupId='org.jenkins-ci.plugins' artifactId='resource-disposer' version='0.20' url='https://github.com/jenkinsci/resource-disposer-plugin'><l:description>The Jenkins Plugins Parent POM Project</l:description><l:license name='MIT License' url='https://opensource.org/licenses/MIT'/></l:dependency></l:dependencies>

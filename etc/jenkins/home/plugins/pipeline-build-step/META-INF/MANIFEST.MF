@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.289.1
+Plugin-Dependencies: workflow-api:1143.v2d42f1e9dea_5,workflow-step-ap
+ i:622.vb_8e7c15b_c95a_,workflow-support:813.vb_d7c3d2984a_0,script-se
+ curity:1138.v8e727069a_025,structs:308.v852b473a2b8c
+Implementation-Title: Pipeline: Build Step
+Long-Name: Pipeline: Build Step
+Implementation-Version: 2.18
+Group-Id: org.jenkins-ci.plugins
+Minimum-Java-Version: 1.8
+Plugin-License-Name: MIT License
+Specification-Title: Pipeline: Build Step
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-build-step-plugin
+Plugin-Version: 2.18
+Jenkins-Version: 2.289.1
+Url: https://github.com/jenkinsci/pipeline-build-step-plugin
+Short-Name: pipeline-build-step
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: 
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.2
+Specification-Version: 2.18
+

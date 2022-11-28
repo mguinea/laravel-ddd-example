@@ -6,14 +6,14 @@ namespace Apps\KanbanApi\Http\Controllers\Board;
 
 use App\Kanban\Board\Application\BoardsResponse;
 use App\Kanban\Board\Application\Listing\SearchBoardsQuery;
-use App\Shared\Domain\Bus\Query\QueryBus;
+use App\Shared\Domain\Bus\Query\QueryBusInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 final class SearchBoardsController
 {
-    public function __construct(private QueryBus $queryBus)
+    public function __construct(private QueryBusInterface $queryBus)
     {
     }
 

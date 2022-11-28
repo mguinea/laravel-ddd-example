@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<l:dependencies xmlns:l='licenses' groupId='com.coravy.hudson.plugins.github' artifactId='github' version='1.35.0'><l:dependency name='GitHub plugin' groupId='com.coravy.hudson.plugins.github' artifactId='github' version='1.35.0' url='https://github.com/jenkinsci/github-plugin'><l:description>The Jenkins Plugins Parent POM Project</l:description><l:license name='MIT License' url='https://www.opensource.org/licenses/mit-license.php'/></l:dependency><l:dependency name='Apache Commons Lang' groupId='org.apache.commons' artifactId='commons-lang3' version='3.12.0' url='https://commons.apache.org/proper/commons-lang/'><l:description>Apache Commons Lang, a package of Java utility classes for the
+  classes that are in java.lang's hierarchy, or are considered to be so
+  standard as to justify existence in java.lang.</l:description><l:license name='Apache License, Version 2.0' url='https://www.apache.org/licenses/LICENSE-2.0.txt'/></l:dependency><l:dependency name='SnakeYAML API Plugin' groupId='io.jenkins.plugins' artifactId='snakeyaml-api' version='1.30.1' url='https://github.com/jenkinsci/snakeyaml-api-plugin'><l:description>This plugin packages stock SnakeYAML library</l:description><l:license name='The MIT License (MIT)' url='https://opensource.org/licenses/MIT'/></l:dependency><l:dependency name='JSON in Java' groupId='org.json' artifactId='json' version='20211205' url='https://github.com/douglascrockford/JSON-java'><l:description>JSON is a light-weight, language independent, data interchange format.
+        See http://www.JSON.org/
+
+        The files in this package implement JSON encoders/decoders in Java.
+        It also includes the capability to convert between JSON and XML, HTTP
+        headers, Cookies, and CDL.
+
+        This is a reference implementation. There is a large number of JSON packages
+        in Java. Perhaps someday the Java community will standardize on one. Until
+        then, choose carefully.
+
+        The license includes this restriction: "The software shall be used for good,
+        not evil." If your conscience cannot live with that, then choose a different
+        package.</l:description><l:license name='The JSON License' url='http://json.org/license.html'/></l:dependency><l:dependency name='SnakeYAML' groupId='org.yaml' artifactId='snakeyaml' version='1.30' url='https://bitbucket.org/snakeyaml/snakeyaml'><l:description>YAML 1.1 parser and emitter for Java</l:description><l:license name='Apache License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'/></l:dependency><l:dependency name='Caffeine API Plugin' groupId='io.jenkins.plugins' artifactId='caffeine-api' version='2.9.3-65.v6a_47d0f4d1fe' url='https://github.com/jenkinsci/caffeine-api-plugin'><l:description>Jenkins plugin that packages Caffeine for use by other plugins.</l:description><l:license name='Apache License v2' url='https://www.apache.org/licenses/LICENSE-2.0.txt'/></l:dependency><l:dependency name='Caffeine cache' groupId='com.github.ben-manes.caffeine' artifactId='caffeine' version='2.9.3' url='https://github.com/ben-manes/caffeine'><l:description>A high performance caching library</l:description><l:license name='Apache License, Version 2.0' url='https://www.apache.org/licenses/LICENSE-2.0.txt'/></l:dependency></l:dependencies>

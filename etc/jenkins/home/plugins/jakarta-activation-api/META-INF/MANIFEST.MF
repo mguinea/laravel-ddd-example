@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.332.1
+Implementation-Title: Jakarta Activation API
+Long-Name: Jakarta Activation API
+Implementation-Version: 2.0.1-2
+Group-Id: io.jenkins.plugins
+Support-Dynamic-Loading: true
+Plugin-License-Name: BSD-3-Clause
+Specification-Title: Jakarta Activation API
+Plugin-ScmUrl: https://github.com/jenkinsci/jakarta-activation-api-plu
+ gin
+Plugin-Version: 2.0.1-2
+Jenkins-Version: 2.332.1
+Url: https://github.com/jenkinsci/jakarta-activation-api-plugin
+Short-Name: jakarta-activation-api
+Plugin-License-Url: https://opensource.org/licenses/BSD-3-Clause
+Plugin-Developers: 
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.6.0
+Specification-Version: 2.0
+

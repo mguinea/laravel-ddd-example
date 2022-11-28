@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.319.1
+Implementation-Title: Jenkins Apache HttpComponents Client 4.x API Plu
+ gin
+Long-Name: Jenkins Apache HttpComponents Client 4.x API Plugin
+Implementation-Version: 4.5.13-138.v4e7d9a_7b_a_e61
+Group-Id: org.jenkins-ci.plugins
+Support-Dynamic-Loading: true
+Plugin-License-Name: MIT License
+Specification-Title: Jenkins Apache HttpComponents Client 4.x API Plug
+ in
+Plugin-ScmUrl: https://github.com/jenkinsci/apache-httpcomponents-clie
+ nt-4-api-plugin
+Plugin-Version: 4.5.13-138.v4e7d9a_7b_a_e61
+Jenkins-Version: 2.319.1
+Url: https://github.com/jenkinsci/apache-httpcomponents-client-4-api-p
+ lugin
+Short-Name: apache-httpcomponents-client-4-api
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: Oleg Nenashev:oleg_nenashev:
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.2
+Specification-Version: 4.5
+

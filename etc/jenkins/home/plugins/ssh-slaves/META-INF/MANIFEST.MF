@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
+Specification-Title: SSH Build Agents plugin
+Specification-Version: 0.0
+Implementation-Title: SSH Build Agents plugin
+Implementation-Version: 2.846.v1b_70190624f5
+Plugin-Class: hudson.plugins.sshslaves.PluginImpl
+Group-Id: org.jenkins-ci.plugins
+Short-Name: ssh-slaves
+Long-Name: SSH Build Agents plugin
+Url: https://github.com/jenkinsci/ssh-slaves-plugin
+Compatible-Since-Version: 2.0.0
+Plugin-Version: 2.846.v1b_70190624f5
+Hudson-Version: 2.361
+Jenkins-Version: 2.361
+Plugin-Dependencies: credentials:1139.veb_9579fca_33b_,ssh-credentials:2
+ 95.vced876c18eb_4,trilead-api:1.67.vc3938a_35172f
+Plugin-Developers: Stephen Connolly:stephenconnolly:,Kohsuke Kawaguchi:k
+ ohsuke:,Olivier Lamy:olamy:,Michael Clarke:mc1arke:,Oleg Nenashev:oleg_
+ nenashev:,Ivan Fernandez Calvo:ifernandezcalvo:
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/ssh-slaves-plugin
+

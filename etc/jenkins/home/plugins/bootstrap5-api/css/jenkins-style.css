@@ -1,0 +1,128 @@
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* Undo problematic bootstrap styles
+/* These styles will only be picked up on Jenkins >=2.239
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+:root {
+    --bs-nav-tabs-border-width: 0;
+}
+
+.modal {
+    --bs-modal-color: var(--text-color);
+    --bs-modal-bg: var(--background);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+}
+
+.table {
+    color: inherit;
+}
+
+.form-control {
+    background-color: var(--input-color);
+    border: 1px solid var(--input-border);
+    color: var(--text-color);
+}
+
+.custom-select {
+    color: var(--text-color);
+}
+
+pre {
+    color: var(--text-color);
+}
+
+.log-output {
+    font-size: var(--font-size-sm);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* Bootstrap tabs in Jenkins style                                                                                                  */
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+.tabBar {
+    list-style: none;
+}
+
+.tabBar .tab a.active {
+    background: var(--tabs-item-background--selected);
+    color: var(--tabs-item-foreground--selected);
+    cursor: default;
+    z-index: 2;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* Bootstrap carousel                                                                                                  */
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+.carousel-control-prev, .carousel-control-next {
+    width: 15px;
+    fill: var(--text-color);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* Font awesome icons float right                                                                                      */
+/* ------------------------------------------------------------------------------------------------------------------- */
+.card {
+    background-color: var(--background);
+    border-radius: calc(var(--table-border-radius) + 2px);
+    border-width: 5px;
+    border-color: var(--table-background);
+    color: var(--text-color);
+    font-size: inherit;
+}
+
+.card-header {
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: var(--table-background);
+    border-bottom: var(--table-background);
+}
+
+.card-header-title {
+    margin-right: auto;
+}
+
+.icon-right  {
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    margin: auto;
+}
+
+.icon-border {
+    float: right;
+    background: var(--item-background--active);
+    border-radius: 100%;
+    height: 48px;
+    width: 48px;
+    content: "";
+    pointer-events: none;
+    position: relative;
+    display: flex;
+}
+
+.tooltip-inner {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {
+    border-top-color: rgba(0, 0, 0, 0.8);
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=right] .arrow::before, .tooltip.bs-tooltip-right .arrow::before {
+    border-right-color: rgba(0, 0, 0, 0.8);
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .tooltip.bs-tooltip-bottom .arrow::before {
+    border-bottom-color: rgba(0, 0, 0, 0.8);
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before, .tooltip.bs-tooltip-left .arrow::before {
+    border-left-color: rgba(0, 0, 0, 0.8);
+}

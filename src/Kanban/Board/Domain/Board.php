@@ -9,8 +9,8 @@ use App\Shared\Domain\Aggregate\AggregateRoot;
 final class Board extends AggregateRoot
 {
     public function __construct(
-        private BoardId $id,
-        private BoardName $name
+        public readonly BoardId $id,
+        public readonly BoardName $name
     ) {
     }
 
@@ -28,15 +28,5 @@ final class Board extends AggregateRoot
         $board->record(new BoardWasCreated($id->value(), $name->value()));
 
         return $board;
-    }
-
-    public function id(): BoardId
-    {
-        return $this->id;
-    }
-
-    public function name(): BoardName
-    {
-        return $this->name;
     }
 }

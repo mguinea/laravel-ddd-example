@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus;
 
-use App\Shared\Domain\Bus\Event\DomainEventSubscriber;
+use App\Shared\Domain\Bus\Event\DomainEventSubscriberInterface;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -31,7 +31,7 @@ final class CallableFirstParameterExtractor
 
     private static function pipedCallablesReducer(): callable
     {
-        return static function ($subscribers, DomainEventSubscriber $subscriber): array {
+        return static function ($subscribers, DomainEventSubscriberInterface $subscriber): array {
             $subscribedEvents = $subscriber::subscribedTo();
 
             foreach ($subscribedEvents as $subscribedEvent) {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus\Messenger;
 
-use App\Shared\Domain\Bus\Query\Query;
-use App\Shared\Domain\Bus\Query\QueryBus;
-use App\Shared\Domain\Bus\Query\Response;
+use App\Shared\Domain\Bus\Query\QueryInterface;
+use App\Shared\Domain\Bus\Query\QueryBusInterface;
+use App\Shared\Domain\Bus\Query\ResponseInterface;
 use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use App\Shared\Infrastructure\Bus\QueryNotRegistered;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
@@ -15,7 +15,7 @@ use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 
-final class MessengerQueryBus implements QueryBus
+final class MessengerQueryBus implements QueryBusInterface
 {
     private MessageBus $bus;
 
@@ -30,7 +30,7 @@ final class MessengerQueryBus implements QueryBus
         );
     }
 
-    public function ask(Query $query): ?Response
+    public function ask(QueryInterface $query): ?ResponseInterface
     {
         try {
             /** @var HandledStamp $stamp */

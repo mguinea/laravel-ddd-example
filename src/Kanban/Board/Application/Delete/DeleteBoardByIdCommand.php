@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Application\Delete;
 
-use App\Shared\Domain\Bus\Command\Command;
+use App\Shared\Domain\Bus\Command\CommandInterface;
 
-final class DeleteBoardByIdCommand implements Command
+final class DeleteBoardByIdCommand implements CommandInterface
 {
-    public function __construct(private string $id)
+    public function __construct(public readonly string $id)
     {
-    }
-
-    public function id(): string
-    {
-        return $this->id;
     }
 }

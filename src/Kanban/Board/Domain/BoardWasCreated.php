@@ -9,8 +9,8 @@ use App\Shared\Domain\Bus\Event\DomainEvent;
 final class BoardWasCreated extends DomainEvent
 {
     public function __construct(
-        private string $id,
-        private string $name,
+        public readonly string $id,
+        public readonly string $name,
         string $eventId = null,
         string $occurredOn = null
     ) {
@@ -37,15 +37,5 @@ final class BoardWasCreated extends DomainEvent
             'id' => $this->id,
             'name' => $this->name
         ];
-    }
-
-    public function id(): string
-    {
-        return $this->id;
-    }
-
-    public function name(): string
-    {
-        return $this->name;
     }
 }

@@ -6,7 +6,7 @@ namespace Tests\Kanban\Board;
 
 use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\BoardId;
-use App\Kanban\Board\Domain\BoardRepository;
+use App\Kanban\Board\Domain\BoardRepositoryInterface;
 use Prophecy\Prophecy\ObjectProphecy;
 use Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 
@@ -50,6 +50,6 @@ abstract class BoardModuleUnitTestCase extends UnitTestCase
 
     private function repositoryProphecy(): ObjectProphecy
     {
-        return $this->repositoryProphecy = $this->repositoryProphecy ?? $this->prophecy(BoardRepository::class);
+        return $this->repositoryProphecy = $this->repositoryProphecy ?? $this->prophecy(BoardRepositoryInterface::class);
     }
 }

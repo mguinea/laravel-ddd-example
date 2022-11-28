@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: Plugin Utilities API Plugin
+Specification-Version: 2.18
+Implementation-Title: Plugin Utilities API Plugin
+Implementation-Version: 2.18.0
+Group-Id: io.jenkins.plugins
+Short-Name: plugin-util-api
+Long-Name: Plugin Utilities API Plugin
+Url: https://github.com/jenkinsci/plugin-util-api-plugin
+Plugin-Version: 2.18.0
+Hudson-Version: 2.346.3
+Jenkins-Version: 2.346.3
+Plugin-Dependencies: commons-lang3-api:3.12.0-36.vd97de6465d5b_,commons-
+ text-api:1.9-19.v8df45c678366
+Plugin-Developers: Ullrich Hafner:uhafner:ullrich.hafner@gmail.com
+Support-Dynamic-Loading: true
+Plugin-License-Name: MIT license
+Plugin-ScmUrl: https://github.com/jenkinsci/plugin-util-api-plugin
+

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus\Messenger;
 
-use App\Shared\Domain\Bus\Command\Command;
-use App\Shared\Domain\Bus\Command\CommandBus;
+use App\Shared\Domain\Bus\Command\CommandInterface;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
 use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use App\Shared\Infrastructure\Bus\CommandNotRegistered;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
@@ -15,7 +15,7 @@ use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 use Throwable;
 
-final class MessengerCommandBus implements CommandBus
+final class MessengerCommandBus implements CommandBusInterface
 {
     private MessageBus $bus;
 
@@ -34,7 +34,7 @@ final class MessengerCommandBus implements CommandBus
      * @throws Throwable
      * @throws CommandNotRegistered
      */
-    public function dispatch(Command $command): void
+    public function dispatch(CommandInterface $command): void
     {
         try {
             $this->bus->dispatch($command);

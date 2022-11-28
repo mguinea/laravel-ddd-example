@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='structs' version='324.va_f5d6774f3a_d'><l:dependency name='Structs Plugin' groupId='org.jenkins-ci.plugins' artifactId='structs' version='324.va_f5d6774f3a_d' url='https://github.com/jenkinsci/structs-plugin'><l:description>Library plugin for DSL plugins that need names for Jenkins objects.</l:description><l:license name='MIT License' url='https://opensource.org/licenses/MIT'/></l:dependency></l:dependencies>

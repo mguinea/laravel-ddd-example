@@ -1,0 +1,15 @@
+<div>
+    Remove workspace contents based on the result of the build.
+    Allows the Pipeline to not clean the workspace contents if the build was unstable or failed and needs the contents of the workspace to investigate the failure.
+    
+    <p>
+    Choices include:
+    <ul>
+    <li><strong>Success</strong>: If enabled, the workspace is cleaned on successful builds.  Enabled by default.</li>
+    <li><strong>Unstable</strong>: If enabled, the workspace is cleaned on unstable builds.  Enabled by default.</li>
+    <li><strong>Failure</strong>: If enabled, the workspace is cleaned on failed builds.  Enabled by default.</li>
+    <li><strong>Not built</strong>: If enabled, the workspace is cleaned on not built builds.  <strong>Not Built needs more clarification!</strong>  Enabled by default.</li>
+    <li><strong>Aborted</strong>: If enabled, the workspace is cleaned on aborted builds.  <strong>When Aborted needs more clarification</strong>  Enabled by default.</li>
+    </ul>
+    </p>
+</div>

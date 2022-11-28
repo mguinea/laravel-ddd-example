@@ -4,29 +4,20 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Application\Delete;
 
+use App\Kanban\Board\Domain\BoardDeletor;
 use App\Kanban\Board\Domain\BoardId;
-use App\Kanban\Board\Domain\BoardNotFound;
-use App\Kanban\Board\Domain\BoardRepository;
-use App\Shared\Domain\Bus\Command\CommandHandler;
+use App\Shared\Domain\Bus\Command\CommandHandlerInterface;
 
-final class DeleteBoardByIdCommandHandler implements CommandHandler
+final class DeleteBoardByIdCommandHandler implements CommandHandlerInterface
 {
-    private BoardRepository $repository;
-
-    public function __construct(BoardRepository $repository)
+    public function __construct(private BoardDeletor $deletor)
     {
-        $this->repository = $repository;
     }
 
     public function __invoke(DeleteBoardByIdCommand $command): void
     {
-        $id = BoardId::fromValue($command->id());
-        $board = $this->repository->find($id);
+        $id = BoardId::fromValue($command->id);
 
-        if (null === $board) {
-            throw new BoardNotFound();
-        }
-
-        $this->repository->delete($id);
+        $this->deletor->__invoke($id);
     }
 }

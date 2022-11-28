@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<l:dependencies xmlns:l='licenses' groupId='io.jenkins.plugins' artifactId='ionicons-api' version='31.v4757b_6987003'><l:dependency name='Ionicons API' groupId='io.jenkins.plugins' artifactId='ionicons-api' version='31.v4757b_6987003' url='https://github.com/jenkinsci/ionicons-api-plugin'><l:description>The Jenkins Plugins Parent POM Project</l:description><l:license name='MIT License' url='https://opensource.org/licenses/MIT'/></l:dependency></l:dependencies>

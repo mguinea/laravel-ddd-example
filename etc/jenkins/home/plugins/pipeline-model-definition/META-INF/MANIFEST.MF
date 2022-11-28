@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.332.1
+Plugin-Dependencies: pipeline-groovy-lib:593.va_a_fc25d520e9,workflow-
+ api:1182.v41475e53ea_43,workflow-basic-steps:969.vc4ec3e4854b_f,workf
+ low-cps:2729.vea_17b_79ed57a_,workflow-durable-task-step:1164.v2334dd
+ cf48d0,workflow-multibranch:716.vc692a_e52371b_,workflow-scm-step:400
+ .v6b_89a_1317c9a_,workflow-support:820.vd1a_6cc65ef33,credentials-bin
+ ding:523.vd859a_4b_122e6,credentials:1087.1089.v2f1b_9a_b_040e4,git-c
+ lient:3.11.0,mailer:414.vcc4c33714601,pipeline-input-step:449.v77f0e8
+ b_845c4,pipeline-stage-step:293.v200037eefcd5,scm-api:608.vfa_f971c5a
+ _a_e9,structs:318.va_f3ccb_729b_71,pipeline-model-api:2.2118.v31fd5b_
+ 9944b_5,pipeline-model-extensions:2.2118.v31fd5b_9944b_5,pipeline-sta
+ ge-tags-metadata:2.2118.v31fd5b_9944b_5
+Implementation-Title: Pipeline: Declarative
+Long-Name: Pipeline: Declarative
+Implementation-Version: 2.2118.v31fd5b_9944b_5
+Group-Id: org.jenkinsci.plugins
+Plugin-License-Name: MIT
+Specification-Title: Pipeline: Declarative
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-model-definition-
+ plugin
+Plugin-Version: 2.2118.v31fd5b_9944b_5
+Jenkins-Version: 2.332.1
+Url: https://github.com/jenkinsci/pipeline-model-definition-plugin
+Short-Name: pipeline-model-definition
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Compatible-Since-Version: 1.6.0
+Plugin-Developers: Andrew Bayer:abayer:
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.6.0
+Specification-Version: 0.0
+

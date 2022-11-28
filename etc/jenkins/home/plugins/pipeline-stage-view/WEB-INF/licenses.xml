@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins.pipeline-stage-view' artifactId='pipeline-stage-view' version='2.27'><l:dependency name='Pipeline: Stage View Plugin' groupId='org.jenkins-ci.plugins.pipeline-stage-view' artifactId='pipeline-stage-view' version='2.27' url='https://github.com/jenkinsci/pipeline-stage-view-plugin'><l:description>Provides a swimlane view of the different stages in a pipeline.</l:description><l:license name='MIT License' url='https://opensource.org/licenses/MIT'/></l:dependency><l:dependency name='Structs Plugin' groupId='org.jenkins-ci.plugins' artifactId='structs' version='318.va_f3ccb_729b_71' url='https://github.com/jenkinsci/structs-plugin'><l:description>Library plugin for DSL plugins that need names for Jenkins objects.</l:description><l:license name='MIT License' url='https://opensource.org/licenses/MIT'/></l:dependency><l:dependency name='JSON in Java' groupId='org.json' artifactId='json' version='20220924' url='https://github.com/douglascrockford/JSON-java'><l:description>JSON is a light-weight, language independent, data interchange format.
+        See http://www.JSON.org/
+
+        The files in this package implement JSON encoders/decoders in Java.
+        It also includes the capability to convert between JSON and XML, HTTP
+        headers, Cookies, and CDL.
+
+        This is a reference implementation. There is a large number of JSON packages
+        in Java. Perhaps someday the Java community will standardize on one. Until
+        then, choose carefully.</l:description><l:license name='Public Domain' url='https://github.com/stleary/JSON-java/blob/master/LICENSE'/></l:dependency><l:dependency name='SnakeYAML' groupId='org.yaml' artifactId='snakeyaml' version='1.33' url='https://bitbucket.org/snakeyaml/snakeyaml'><l:description>YAML 1.1 parser and emitter for Java</l:description><l:license name='Apache License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'/></l:dependency></l:dependencies>

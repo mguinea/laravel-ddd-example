@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
+Specification-Title: GitHub plugin
+Specification-Version: 1.35
+Implementation-Title: GitHub plugin
+Implementation-Version: 1.35.0
+Plugin-Class: org.jenkinsci.plugins.github.GitHubPlugin
+Group-Id: com.coravy.hudson.plugins.github
+Short-Name: github
+Long-Name: GitHub plugin
+Url: https://github.com/jenkinsci/github-plugin
+Plugin-Version: 1.35.0
+Hudson-Version: 2.357
+Jenkins-Version: 2.357
+Plugin-Dependencies: okhttp-api:4.9.2-20211102,instance-identity:116.vf8
+ f487400980,credentials:1129.vef26f5df883c,display-url-api:2.3.6,git:4.1
+ 1.3,github-api:1.114.2,plain-credentials:1.8,scm-api:608.vfa_f971c5a_a_
+ e9,token-macro:293.v283932a_0a_b_49
+Plugin-Developers: Merkushev Kirill:lanwen:,Kanstantsin Shautsou:KostyaS
+ ha:
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://www.opensource.org/licenses/mit-license.php
+Plugin-ScmUrl: https://github.com/jenkinsci/github-plugin
+
