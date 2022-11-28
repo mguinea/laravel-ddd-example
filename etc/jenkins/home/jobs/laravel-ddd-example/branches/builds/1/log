@@ -1,9 +1,0 @@
-Branch indexing
-Checking out git into /var/jenkins_home/workspace/laravel-ddd-example_@script/12a2922c0e642e2f857503be9e4015e50d34108f1e95ef6f0609a749bfc1c33c to read Jenkinsfile
-The recommended git tool is: NONE
-No credentials specified
-Seen 0 remote branches
- > git show-ref --tags -d # timeout=10
-ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
-ERROR: Maximum checkout retry attempts reached, aborting
-Finished: FAILURE
