@@ -26,9 +26,9 @@ final class EloquentCriteriaTransformer
         foreach ($this->criteria->filters as $filter) {
             switch ($filter->operator) {
                 case FilterOperator::EQUAL:
-                    $query->where($filter->field, '=', $filter->value);
+                    return $query->where($filter->field, '=', $filter->value);
                 case FilterOperator::NOT_EQUAL:
-                    $query->where($filter->field, '!=', $filter->value);
+                    return $query->where($filter->field, '!=', $filter->value);
             }
         }
 

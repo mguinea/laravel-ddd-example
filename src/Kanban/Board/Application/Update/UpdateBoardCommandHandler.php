@@ -17,8 +17,8 @@ final class UpdateBoardCommandHandler implements CommandHandlerInterface
 
     public function __invoke(UpdateBoardCommand $command): void
     {
-        $id = BoardId::fromValue($command->id());
-        $name = BoardName::fromValue($command->name());
+        $id = BoardId::fromValue($command->id);
+        $name = BoardName::fromValue($command->name);
 
         $this->updater->__invoke($id, $name);
     }

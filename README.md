@@ -17,7 +17,7 @@
   (CQRS) principles</strong>.
   <br />
   <br />
-  It's a basic implementation of a Kanban manager (at this moment, just only manages Board entity; not columns or tasks)
+  It's a basic implementation of a Kanban manager (at this moment, just only manages Board entity with id and name attributes)
   <br />
   <br />
   The main objective of this implementation is to use Laravel as backend framework but instead of using MVC architecture, go for DDD and Hexagonal. 
@@ -48,11 +48,18 @@
 Install all the dependencies and bring up the project with Docker executing:
 
 `make build`\
-`make up`
+`make up`\
+`make migrate`
     
 Then you'll have 1 app available (an API):
 
-1. Kanban API: http://localhost:8080/api/v1/kanban/health-check
+- Kanban API: http://localhost:8080/api/v1/kanban/health-check
+
+### API Documentation
+
+Open API documentation [here](./kanban-api-endpoints.yaml)
+
+Postman API collection [here](./kanban-api-endpoints.postman.json)
 
 ### Tests
 
@@ -74,11 +81,9 @@ Here are our implementations of the code we have in our base (src). Here can be 
 
 `src` is for "Source". Here we put all our code base being as independent as possible of any implementation (except is there is in `infrastructure` subfolder).
 
-The main idea is to use this as our **pure** code, with no vendor 
-
 ### Bounded contexts
 
-Kanban: Place where the main functionality is implemented. Management of boards, columns, tasks...
+Kanban: Place where the main functionality is implemented. Management of boards...
 
 ### Architecture and Structure
 
@@ -107,7 +112,7 @@ src
 
 Repository pattern
 
-Our repositories try to be as simple as possible usually only containing basic CRUD methods (delete, find, save and list).
+Our repositories try to be as simple as possible usually only containing basic CRUD methods (delete, find, save and list using criteria pattern).
 
 #### CQRS
 
