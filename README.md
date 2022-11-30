@@ -118,6 +118,12 @@ Our repositories try to be as simple as possible usually only containing basic C
 
 Symfony Messenger has been used to implement commands, queries and events.
 
+## Infrastructure
+
+### RabbitMQ
+
+There is a service with RabbitMQ to manage queues. You can access it going to ` http://localhost:15672` and using `guest` as username and password.
+
 ## References
 
 - [Bash best practices](https://gist.github.com/leolorenzoluis/0aad69719267536d0b7a79946edbfcb7)
@@ -125,3 +131,4 @@ Symfony Messenger has been used to implement commands, queries and events.
 - [Ansible best practices](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#content-organization)
 - [Terraform first steps](https://www.adictosaltrabajo.com/2020/06/19/primeros-pasos-con-terraform-crear-instancia-ec2-en-aws/)
 - [Jenkins in Docker](https://appinventiv.com/blog/jenkins-installation-using-docker-compose/)
+- https://stackoverflow.com/questions/59643458/dockerfile-install-amqp-failed

@@ -46,6 +46,18 @@ services:
     networks:
       - laravel-ddd-example
 
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: laravel-ddd-example.rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - laravel-ddd-example
+
 networks:
   laravel-ddd-example:
     driver: bridge

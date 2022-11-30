@@ -9,13 +9,15 @@
     "ext-amqp": "*",
     "ext-json": "*",
     "ext-pdo": "*",
+    "ext-redis": "*",
     "fideloper/proxy": "^4.4",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "lambdish/phunctional": "^2",
     "laravel/framework": "^8.0",
-    "phpspec/prophecy": "^1.15",
     "mguinea/php-criteria": "dev-main",
+    "php-amqplib/php-amqplib": "^2.8",
+    "phpspec/prophecy": "^1.15",
     "symfony/messenger": "^5.0"
   },
   "require-dev": {
