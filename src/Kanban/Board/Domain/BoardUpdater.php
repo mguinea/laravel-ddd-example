@@ -12,7 +12,7 @@ final class BoardUpdater
 
     public function __invoke(BoardId $id, BoardName $name): void
     {
-        $board = $this->repository->find($id);
+        $board = $this->repository->findOneBy($id);
 
         if (null === $board) {
             throw new BoardNotFound();

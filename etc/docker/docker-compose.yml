@@ -2,126 +2,54 @@ version: '3.7'
 
 services:
 
-  # Container just for unit tests of our core code at src folder
-  laravel-ddd-example.app:
-    build:
-      context: ./../../
-      dockerfile: ./etc/docker/php.Dockerfile
-    container_name: app
-    env_file:
-      - ./../../.env
+  db:
     environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    networks:
-      - laravel-ddd-example.network
+      MARIADB_ROOT_PASSWORD: secret
+      MARIADB_DATABASE: example
+      MARIADB_USER: example
+      MARIADB_PASSWORD: secret
+    container_name: laravel-ddd-example.db
+    image: mariadb:10.7.4
+    ports:
+      - "3360:3306"
     restart: unless-stopped
-    tty: true
-    volumes:
-      - ./../../:/var/www
-      - ./../../etc/php/local.ini:/usr/local/etc/php/conf.d/local.ini
-    working_dir: /var/www
-
-  laravel-ddd-example.db:
-    container_name: db
-    env_file:
-      - ./../../.env
-    environment:
-      MYSQL_DATABASE: ${DB_DATABASE-example}
-      MYSQL_USER: ${DB_USERNAME-example}
-      MYSQL_PASSWORD: ${DB_PASSWORD-secret}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD-secret}
-      SERVICE_NAME: mysql
-      SERVICE_TAGS: dev
-    image: mysql:latest
-    networks:
-      - laravel-ddd-example.network
-    restart: unless-stopped
-    tty: true
     volumes:
       - laravel-ddd-example.dbdata:/var/lib/mysql/
-      - ./../../etc/mysql/my.cnf:/etc/mysql/my.cnf
-
-  laravel-ddd-example.prometheus:
-    container_name: prometheus
-    image: prom/prometheus:v2.36.1
-    volumes:
-      - ./../../etc/prometheus/:/etc/prometheus/
-      - laravel-ddd-example.prometeus:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
     networks:
-      - laravel-ddd-example.network
-    # extra_hosts:
-    # - "host.docker.internal: host-gateway"
-    ports:
-      - 9999:9090
+      - laravel-ddd-example
 
-  laravel-ddd-example.grafana:
-    container_name: grafana
-    image: grafana/grafana:7.5.7
-    networks:
-      - laravel-ddd-example.network
-    ports:
-      - 3001:3000
-    restart: unless-stopped
-    volumes:
-      - ./../../etc/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-      - laravel-ddd-example.grafana:/var/lib/grafana
-
-  laravel-ddd-example.kanban-api:
+  app:
     build:
       context: ./../../
       dockerfile: ./etc/docker/php.Dockerfile
-    command: php -S laravel-ddd-example.kanban-api:8080 -t ./apps/kanban-api/public
-    container_name: kanban-api
-    depends_on:
-      - laravel-ddd-example.db
-      - laravel-ddd-example.prometheus
-    env_file:
-      - ./../../.env
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    networks:
-      - laravel-ddd-example.network
-    ports:
-      - 8080:8080
+    container_name: laravel-ddd-example.app
+    command: php -S laravel-ddd-example.app:8080 -t ./apps/kanban-api/public
     restart: unless-stopped
+    ports:
+      - "8080:8080"
     tty: true
     volumes:
       - ./../../:/var/www
-      - ./../../etc/php/local.ini:/usr/local/etc/php/conf.d/local.ini
-    working_dir: /var/www
+    depends_on:
+      - db
+    networks:
+      - laravel-ddd-example
 
-  laravel-ddd-example.jenkins:
-    image: jenkins/jenkins:lts
-    restart: unless-stopped
-    privileged: true
-    user: root
+  adminer:
+    image: adminer
+    container_name: laravel-ddd-example.adminer
+    restart: always
+    depends_on:
+      - db
     ports:
-      - 8099:8080
-    container_name: jenkins
-    volumes:
-      - ./../../etc/jenkins/home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker:/usr/local/bin/docker
+      - "8081:8080"
+    networks:
+      - laravel-ddd-example
 
 networks:
-  laravel-ddd-example.network:
-    name: laravel-ddd-example.network
+  laravel-ddd-example:
     driver: bridge
 
 volumes:
   laravel-ddd-example.dbdata:
-    name: laravel-ddd-example.dbdata
-    driver: local
-  laravel-ddd-example.prometeus:
-    name: laravel-ddd-example.prometeus
-    driver: local
-  laravel-ddd-example.grafana:
-    name: laravel-ddd-example.grafana
     driver: local

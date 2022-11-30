@@ -47,13 +47,8 @@
 
 Install all the dependencies and bring up the project with Docker executing:
 
-`composer build`\
-`composer migrate`
-
-and run containers:
-
-`composer up`
-
+`make build`\
+`make up`
     
 Then you'll have 1 app available (an API):
 
@@ -61,7 +56,7 @@ Then you'll have 1 app available (an API):
 
 ### Tests
 
-Execute all test suites: `composer tests`
+Execute all test suites: `make tests`
 
 ## Project structure and explanation
 

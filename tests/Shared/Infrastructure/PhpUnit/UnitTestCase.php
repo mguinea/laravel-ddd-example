@@ -6,7 +6,7 @@ namespace Tests\Shared\Infrastructure\PhpUnit;
 
 use App\Shared\Domain\Bus\Command\CommandInterface;
 use App\Shared\Domain\Bus\Command\CommandBusInterface;
-use App\Shared\Domain\Bus\Event\DomainEvent;
+use App\Shared\Domain\Bus\Event\AbstractDomainEvent;
 use App\Shared\Domain\Bus\Event\EventBusInterface;
 use App\Shared\Domain\Bus\Query\QueryInterface;
 use App\Shared\Domain\Bus\Query\QueryBusInterface;
@@ -40,7 +40,7 @@ abstract class UnitTestCase extends TestCase
         return $this->prophet->prophesize($interface);
     }
 
-    protected function notify(DomainEvent $event, callable $subscriber): void
+    protected function notify(AbstractDomainEvent $event, callable $subscriber): void
     {
         $subscriber($event);
     }

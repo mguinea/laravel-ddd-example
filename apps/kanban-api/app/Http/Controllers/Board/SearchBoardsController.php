@@ -45,7 +45,7 @@ final class SearchBoardsController
 
         return new JsonResponse(
             [
-                'boards' => $boardsResponse->toArray()
+                'boards' => $boardsResponse
             ],
             Response::HTTP_OK,
             ['Access-Control-Allow-Origin' => '*']

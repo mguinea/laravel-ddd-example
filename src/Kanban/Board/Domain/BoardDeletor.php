@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Domain;
 
+use Mguinea\Criteria\Criteria;
+use Mguinea\Criteria\Filter;
+use Mguinea\Criteria\FilterOperator;
+
 final class BoardDeletor
 {
     public function __construct(private BoardRepositoryInterface $repository)
@@ -12,8 +16,13 @@ final class BoardDeletor
 
     public function __invoke(BoardId $id): void
     {
-        $id = BoardId::fromValue($id);
-        $board = $this->repository->find($id);
+        $board = $this->repository->findOneBy(new Criteria([
+            new Filter(
+                'id',
+                FilterOperator::EQUAL,
+                $id->value()
+            )
+        ]));
 
         if (null === $board) {
             throw new BoardNotFound();

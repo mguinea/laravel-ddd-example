@@ -18,6 +18,7 @@ final class GetBoardByIdQueryHandler implements QueryHandlerInterface
     public function __invoke(GetBoardByIdQuery $query): BoardResponse
     {
         $id = BoardId::fromValue($query->id);
+
         $board = $this->finder->__invoke($id);
 
         return BoardResponse::fromBoard($board);

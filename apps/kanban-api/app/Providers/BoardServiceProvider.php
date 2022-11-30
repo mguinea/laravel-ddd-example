@@ -7,14 +7,14 @@ namespace Apps\KanbanApi\Providers;
 use App\Kanban\Board\Application\Create\CreateBoardCommandHandler;
 use App\Kanban\Board\Application\Delete\DeleteBoardByIdCommandHandler;
 use App\Kanban\Board\Application\Get\GetBoardByIdQueryHandler;
-use App\Kanban\Board\Application\Listing\SearchBoardsQueryHandlerInterface;
+use App\Kanban\Board\Application\Listing\SearchBoardsQueryHandler;
 use App\Kanban\Board\Application\Subscriber\SomethingWithCreatedBoardSubscriber;
 use App\Kanban\Board\Application\Update\UpdateBoardCommandHandler;
 use App\Kanban\Board\Domain\BoardRepositoryInterface;
 use App\Kanban\Board\Infrastructure\Eloquent\BoardRepository as EloquentBoardRepository;
 use Illuminate\Support\ServiceProvider;
 
-final class BoardServiceProvider extends ServiceProvider
+class BoardServiceProvider extends ServiceProvider
 {
     public function register()
     {
@@ -39,7 +39,7 @@ final class BoardServiceProvider extends ServiceProvider
         );
 
         $this->app->tag(
-            SearchBoardsQueryHandlerInterface::class,
+            SearchBoardsQueryHandler::class,
             'query_handler'
         );
 

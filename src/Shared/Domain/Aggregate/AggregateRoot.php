@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\Aggregate;
 
-use App\Shared\Domain\Bus\Event\DomainEvent;
+use App\Shared\Domain\Bus\Event\AbstractDomainEvent;
 
 abstract class AggregateRoot
 {
@@ -18,7 +18,7 @@ abstract class AggregateRoot
         return $domainEvents;
     }
 
-    final protected function record(DomainEvent $domainEvent): void
+    final protected function record(AbstractDomainEvent $domainEvent): void
     {
         $this->domainEvents[] = $domainEvent;
     }

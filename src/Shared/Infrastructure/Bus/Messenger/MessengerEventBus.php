@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus\Messenger;
 
-use App\Shared\Domain\Bus\Event\DomainEvent;
+use App\Shared\Domain\Bus\Event\AbstractDomainEvent;
 use App\Shared\Domain\Bus\Event\EventBusInterface;
 use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use Symfony\Component\Messenger\Envelope;
@@ -30,7 +30,7 @@ final class MessengerEventBus implements EventBusInterface
         );
     }
 
-    public function publish(DomainEvent ...$events): void
+    public function publish(AbstractDomainEvent ...$events): void
     {
         foreach ($events as $event) {
             try {

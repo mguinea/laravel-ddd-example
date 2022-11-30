@@ -9,10 +9,6 @@ use Apps\KanbanApi\Http\Controllers\HealthCheck\HealthCheckController;
 use Apps\KanbanApi\Http\Controllers\PrometheusMetricsController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['api'])->group(function() {
-    Route::get('metrics', PrometheusMetricsController::class);
-});
-
 Route::middleware(['api'])->prefix('api/v1/kanban')->group(function() {
     Route::get('health-check', HealthCheckController::class);
 

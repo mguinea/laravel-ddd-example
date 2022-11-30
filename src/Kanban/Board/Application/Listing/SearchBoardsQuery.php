@@ -9,36 +9,10 @@ use App\Shared\Domain\Bus\Query\QueryInterface;
 final class SearchBoardsQuery implements QueryInterface
 {
     public function __construct(
-        private ?array $filters,
-        private ?string $orderBy,
-        private ?string $order,
-        private ?int $limit,
-        private ?int $offset
+        public readonly ?array $filters = null,
+        public readonly ?array $orderList = null,
+        public readonly ?int $offset = null,
+        public readonly ?int $limit = null
     ) {
-    }
-
-    public function filters(): ?array
-    {
-        return $this->filters;
-    }
-
-    public function orderBy(): ?string
-    {
-        return $this->orderBy;
-    }
-
-    public function order(): ?string
-    {
-        return $this->order;
-    }
-
-    public function limit(): ?int
-    {
-        return $this->limit;
-    }
-
-    public function offset(): ?int
-    {
-        return $this->offset;
     }
 }

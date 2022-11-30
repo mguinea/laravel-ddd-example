@@ -29,10 +29,10 @@ final class BoardsResponse implements ResponseInterface
         return new self($boardResponses);
     }
 
-    public function toArray(): array
+    public function jsonSerialize(): array
     {
         return array_map(function (BoardResponse $boardResponse) {
-            return $boardResponse->toArray();
+            return $boardResponse->jsonSerialize();
         }, $this->boards);
     }
 }

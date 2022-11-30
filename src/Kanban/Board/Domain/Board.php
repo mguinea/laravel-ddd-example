@@ -25,7 +25,7 @@ final class Board extends AggregateRoot
     public static function create(BoardId $id, BoardName $name): self
     {
         $board = new self($id, $name);
-        $board->record(new BoardWasCreated($id->value(), $name->value()));
+        $board->record(new BoardWasCreated($id->value, $name->value));
 
         return $board;
     }

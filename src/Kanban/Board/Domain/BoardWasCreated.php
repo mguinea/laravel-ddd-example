@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Kanban\Board\Domain;
 
-use App\Shared\Domain\Bus\Event\DomainEvent;
+use App\Shared\Domain\Bus\Event\AbstractDomainEvent;
 
-final class BoardWasCreated extends DomainEvent
+final class BoardWasCreated extends AbstractDomainEvent
 {
     public function __construct(
         public readonly string $id,
@@ -22,7 +22,7 @@ final class BoardWasCreated extends DomainEvent
         array $body,
         string $eventId,
         string $occurredOn
-    ): DomainEvent {
+    ): AbstractDomainEvent {
         return new self($aggregateId, $body['name'], $eventId, $occurredOn);
     }
 

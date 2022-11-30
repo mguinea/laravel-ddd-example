@@ -9,12 +9,9 @@ use Ramsey\Uuid\Uuid as RamseyUuid;
 
 class UuidValueObject
 {
-    protected string $value;
-
-    public function __construct(string $value)
+    public function __construct(public readonly string $value)
     {
         $this->assertIsValidUuid($value);
-        $this->value = $value;
     }
 
     public static function random()
@@ -27,19 +24,9 @@ class UuidValueObject
         return new static($value);
     }
 
-    public function value(): string
-    {
-        return $this->value;
-    }
-
     public function equals(UuidValueObject $other): bool
     {
-        return $this->value() === $other->value();
-    }
-
-    public function __toString(): string
-    {
-        return $this->value();
+        return $this->value === $other->value;
     }
 
     private function assertIsValidUuid(string $id): void

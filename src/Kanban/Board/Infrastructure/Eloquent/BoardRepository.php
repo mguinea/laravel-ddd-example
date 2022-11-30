@@ -6,13 +6,13 @@ namespace App\Kanban\Board\Infrastructure\Eloquent;
 
 use App\Kanban\Board\Domain\Board;
 use App\Kanban\Board\Domain\BoardId;
-use App\Kanban\Board\Domain\BoardAlreadyExists;
 use App\Kanban\Board\Domain\BoardRepositoryInterface;
 use App\Kanban\Board\Domain\Boards;
-use App\Shared\Domain\Criteria\Criteria;
+use App\Shared\Infrastructure\Eloquent\EloquentCriteriaTransformer;
 use App\Shared\Infrastructure\Eloquent\EloquentException;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Mguinea\Criteria\Criteria;
 
 final class BoardRepository implements BoardRepositoryInterface
 {
@@ -23,23 +23,37 @@ final class BoardRepository implements BoardRepositoryInterface
         $this->model = $model;
     }
 
-    /**
-     * @throws BoardAlreadyExists
-     */
     public function delete(BoardId $id): void
     {
-        $board = $this->model->find($id->value());
-
-        if (null === $board) {
-            throw new BoardAlreadyExists();
-        }
+        $board = $this->model->find($id->value);
 
         $board->delete();
     }
 
-    public function find(BoardId $id): ?Board
+    public function findBy(Criteria $criteria): Boards
     {
-        $eloquentBoard = $this->model->find($id->value());
+        $eloquentBoard = (new EloquentCriteriaTransformer($criteria, $this->model))
+            ->builder()
+            ->first()
+        ;
+
+        $eloquentBoards = $this->model->all();
+
+        $boards = $eloquentBoards->map(
+            function (BoardModel $eloquentBoard) {
+                return $this->toDomain($eloquentBoard);
+            }
+        )->toArray();
+
+        return new Boards($boards);
+    }
+
+    public function findOneBy(Criteria $criteria): ?Board
+    {
+        /** @var BoardModel $eloquentBoard */
+        $eloquentBoard = (new EloquentCriteriaTransformer($criteria, $this->model))
+            ->builder()
+            ->first();
 
         if (null === $eloquentBoard) {
             return null;
@@ -61,14 +75,14 @@ final class BoardRepository implements BoardRepositoryInterface
      */
     public function save(Board $board): void
     {
-        $boardModel = $this->model->find($board->id()->value());
+        $boardModel = $this->model->find($board->id->value);
 
         if (null === $boardModel) {
             $boardModel = new BoardModel;
-            $boardModel->id = $board->id()->value();
-            $boardModel->name = $board->name()->value();
+            $boardModel->id = $board->id->value;
+            $boardModel->name = $board->name->value;
         } else {
-            $boardModel->name = $board->name()->value();
+            $boardModel->name = $board->name->value;
         }
 
         DB::beginTransaction();
@@ -83,18 +97,5 @@ final class BoardRepository implements BoardRepositoryInterface
                 $e->getPrevious()
             );
         }
-    }
-
-    public function search(Criteria $criteria): Boards
-    {
-        $eloquentBoards = $this->model->all();
-
-        $boards = $eloquentBoards->map(
-            function (BoardModel $eloquentBoard) {
-                return $this->toDomain($eloquentBoard);
-            }
-        )->toArray();
-
-        return new Boards($boards);
     }
 }
